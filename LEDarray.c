@@ -124,4 +124,13 @@ void LEDarray_disp_PPM(unsigned int cur_val, unsigned int max)
 
 	LEDarray_disp_bin(disp_val);	//display value on LED array
 }
-
+//this function controls whether the LED is on or off during the hours (1am-5am)
+void LED_night_time_check(unsigned int hour) {
+    
+    if (1<=hour<=5) {
+        LATHbits.LATH3=1;  //LED turns on between (1-5am) 
+    }
+    else {
+        LATHbits.LATH3=0;   //else LED is off
+    }
+}

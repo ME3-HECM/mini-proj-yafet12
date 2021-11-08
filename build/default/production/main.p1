@@ -83,7 +83,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8 ./timers.h
 [; ;./timers.h: 8: void Timer0_init(void);
 [v _Timer0_init `(v ~T0 @X0 0 ef ]
-"14 ./interrupts.h
+"13 ./interrupts.h
+[; ;./interrupts.h: 13: extern volatile unsigned int count_in_minutes;
+[v _count_in_minutes `Vui ~T0 @X0 0 e ]
+"14
 [; ;./interrupts.h: 14: extern unsigned int hour;
 [v _hour `ui ~T0 @X0 0 e ]
 "10 ./LEDarray.h
@@ -2072,8 +2075,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "15 ./interrupts.h
 [; ;./interrupts.h: 15: unsigned char night_time;
 [v _night_time `uc ~T0 @X0 1 e ]
+"25 main.c
+[; ;main.c: 25: unsigned char night_time;
+[v _night_time `uc ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"26 main.c
+"26
 [; ;main.c: 26: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
@@ -2111,29 +2117,66 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2023 ]
 {
 "40
-[; ;main.c: 40:         if (hour==24) {
-[e $ ! == _hour -> -> 24 `i `ui 2025  ]
+[; ;main.c: 40:         if (count_in_minutes%60==0) {
+[e $ ! == % _count_in_minutes -> -> 60 `i `ui -> -> 0 `i `ui 2025  ]
 {
 "41
-[; ;main.c: 41:             LEDarray_disp_bin(hour);
-[e ( _LEDarray_disp_bin (1 _hour ]
+[; ;main.c: 41:             hour++;
+[e ++ _hour -> -> 1 `i `ui ]
 "42
-[; ;main.c: 42:             hour=0;
-[e = _hour -> -> 0 `i `ui ]
-"43
-[; ;main.c: 43:         }
+[; ;main.c: 42:         }
 }
 [e :U 2025 ]
+"43
+[; ;main.c: 43:         if (hour==24) {
+[e $ ! == _hour -> -> 24 `i `ui 2026  ]
+{
 "44
-[; ;main.c: 44:         LEDarray_disp_bin(hour);
+[; ;main.c: 44:             LEDarray_disp_bin(hour);
 [e ( _LEDarray_disp_bin (1 _hour ]
+"45
+[; ;main.c: 45:             hour=0;
+[e = _hour -> -> 0 `i `ui ]
 "46
-[; ;main.c: 46:     }
+[; ;main.c: 46:         }
+}
+[e $U 2027  ]
+"47
+[; ;main.c: 47:         else {LEDarray_disp_bin(hour);}
+[e :U 2026 ]
+{
+[e ( _LEDarray_disp_bin (1 _hour ]
+}
+[e :U 2027 ]
+"49
+[; ;main.c: 49:         if (1<=hour<=5) {
+[e $ ! <= -> <= -> -> 1 `i `ui _hour `i -> 5 `i 2028  ]
+{
+"50
+[; ;main.c: 50:             night_time=1;
+[e = _night_time -> -> 1 `i `uc ]
+"51
+[; ;main.c: 51:         }
+}
+[e $U 2029  ]
+"52
+[; ;main.c: 52:         else {
+[e :U 2028 ]
+{
+"53
+[; ;main.c: 53:             night_time=0;
+[e = _night_time -> -> 0 `i `uc ]
+"54
+[; ;main.c: 54:         }
+}
+[e :U 2029 ]
+"56
+[; ;main.c: 56:     }
 }
 [e :U 2022 ]
 [e $U 2023  ]
 [e :U 2024 ]
-"49
-[; ;main.c: 49: }
+"59
+[; ;main.c: 59: }
 [e :UE 2021 ]
 }

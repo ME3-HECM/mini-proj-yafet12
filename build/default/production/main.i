@@ -24215,10 +24215,10 @@ void Button_init(void);
 
 void Interrupts_init(void);
 
-void __attribute__((picinterrupt(("high_priority")))) HighISR2();
+void __attribute__((picinterrupt(("high_priority")))) HighISR();
 
 
-extern volatile unsigned int count;
+extern volatile unsigned int count_in_minutes;
 extern unsigned int hour;
 unsigned char night_time;
 # 14 "main.c" 2
@@ -24386,7 +24386,15 @@ char *ctermid(char *);
 
 char *tempnam(const char *, const char *);
 # 17 "main.c" 2
-# 26 "main.c"
+
+
+
+
+
+
+
+
+unsigned char night_time;
 void main(void) {
 
     LEDarray_init();
@@ -24401,11 +24409,21 @@ void main(void) {
 
     while (1) {
 
+        if (count_in_minutes%60==0) {
+            hour++;
+        }
         if (hour==24) {
             LEDarray_disp_bin(hour);
             hour=0;
         }
-        LEDarray_disp_bin(hour);
+        else {LEDarray_disp_bin(hour);}
+
+        if (1<=hour<=5) {
+            night_time=1;
+        }
+        else {
+            night_time=0;
+        }
 
     }
 

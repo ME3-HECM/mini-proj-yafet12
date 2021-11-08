@@ -24187,23 +24187,15 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 
 void Interrupts_init(void);
 
-void __attribute__((picinterrupt(("high_priority")))) HighISR2();
+void __attribute__((picinterrupt(("high_priority")))) HighISR();
 
 
-extern volatile unsigned int count;
+extern volatile unsigned int count_in_minutes;
 extern unsigned int hour;
 unsigned char night_time;
 # 2 "interrupts.c" 2
-
-
-
-
-
-
-
-
-unsigned char night_time;
-volatile unsigned int count;
+# 11 "interrupts.c"
+volatile unsigned int count_in_minutes;
 unsigned int hour;
 
 
@@ -24225,35 +24217,27 @@ void Interrupts_init(void)
 
 
 
-void __attribute__((picinterrupt(("low_priority")))) HighISR()
 
-{
-    if (PIR2bits.C1IF) {
-        LATHbits.LATH3=1;
-        PIR2bits.C1IF=0;
-
-    }
-
-}
-
-
-void __attribute__((picinterrupt(("high_priority")))) HighISR2()
+void __attribute__((picinterrupt(("high_priority")))) HighISR()
 {
 
     if (PIR0bits.TMR0IF) {
 
-        count++;
+        count_in_minutes++;
         TMR0H=0b00011011;
         TMR0L=0b00011101;
 
         PIR0bits.TMR0IF=0;
     }
-}
-void __attribute__((picinterrupt(("high_priority")))) HighISR3()
-{
+
     if (night_time) {
 
         LATHbits.LATH3=!LATHbits.LATH3;
-        night_time=0;
+
+    }
+    if (PIR2bits.C1IF) {
+        LATHbits.LATH3=1;
+        PIR2bits.C1IF=0;
+
     }
 }
