@@ -24203,6 +24203,7 @@ void LEDarray_disp_bin(unsigned int number);
 void LEDarray_disp_dec(unsigned int number);
 void LEDarray_disp_PPM(unsigned int number, unsigned int max);
 void Button_init(void);
+void LED_night_time_check(unsigned int hour);
 # 13 "main.c" 2
 
 # 1 "./interrupts.h" 1
@@ -24220,7 +24221,6 @@ void __attribute__((picinterrupt(("high_priority")))) HighISR();
 
 extern volatile unsigned int count_in_minutes;
 extern unsigned int hour;
-unsigned char night_time;
 # 14 "main.c" 2
 
 # 1 "./comparator.h" 1
@@ -24386,22 +24386,13 @@ char *ctermid(char *);
 
 char *tempnam(const char *, const char *);
 # 17 "main.c" 2
-
-
-
-
-
-
-
-
-unsigned char night_time;
+# 26 "main.c"
 void main(void) {
 
     LEDarray_init();
     LATHbits.LATH3=0;
-    LATDbits.LATD7=1;
     TRISHbits.TRISH3=0;
-    TRISDbits.TRISD7=0;
+
     Interrupts_init();
     DAC_init();
     Comp1_init();
@@ -24418,12 +24409,7 @@ void main(void) {
         }
         else {LEDarray_disp_bin(hour);}
 
-        if (1<=hour<=5) {
-            night_time=1;
-        }
-        else {
-            night_time=0;
-        }
+        LED_night_time_check(hour);
 
     }
 

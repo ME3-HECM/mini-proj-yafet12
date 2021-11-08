@@ -118,6 +118,37 @@ Version 4.0 HI-TECH Software Intermediate Code
 "12319
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f67k40.h: 12319: extern volatile ANSELFbits_t ANSELFbits __attribute__((address(0xEB4)));
 [v _ANSELFbits `VS567 ~T0 @X0 0 e@3764 ]
+"29280
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f67k40.h: 29280:     struct {
+[s S1364 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1364 . LATH0 LATH1 LATH2 LATH3 ]
+"29286
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f67k40.h: 29286:     struct {
+[s S1365 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1365 . LH0 LH1 LH2 LH3 ]
+"29292
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f67k40.h: 29292:     struct {
+[s S1366 :4 `uc 1 :1 `uc 1 ]
+[n S1366 . . LH4 ]
+"29296
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f67k40.h: 29296:     struct {
+[s S1367 :5 `uc 1 :1 `uc 1 ]
+[n S1367 . . LH5 ]
+"29300
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f67k40.h: 29300:     struct {
+[s S1368 :6 `uc 1 :1 `uc 1 ]
+[n S1368 . . LH6 ]
+"29304
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f67k40.h: 29304:     struct {
+[s S1369 :7 `uc 1 :1 `uc 1 ]
+[n S1369 . . LH7 ]
+"29279
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f67k40.h: 29279: typedef union {
+[u S1363 `S1364 1 `S1365 1 `S1366 1 `S1367 1 `S1368 1 `S1369 1 ]
+[n S1363 . . . . . . . ]
+"29309
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f67k40.h: 29309: extern volatile LATHbits_t LATHbits __attribute__((address(0xF80)));
+[v _LATHbits `VS1363 ~T0 @X0 0 e@3968 ]
 "54 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f67k40.h: 54: __asm("PPSLOCK equ 0DEFh");
 [; <" PPSLOCK equ 0DEFh ;# ">
@@ -2436,4 +2467,43 @@ Version 4.0 HI-TECH Software Intermediate Code
 "126
 [; ;LEDarray.c: 126: }
 [e :UE 2043 ]
+}
+"128
+[; ;LEDarray.c: 128: void LED_night_time_check(unsigned int hour)
+[v _LED_night_time_check `(v ~T0 @X0 1 ef1`ui ]
+"129
+[; ;LEDarray.c: 129: {
+{
+[e :U _LED_night_time_check ]
+"128
+[; ;LEDarray.c: 128: void LED_night_time_check(unsigned int hour)
+[v _hour `ui ~T0 @X0 1 r1 ]
+"129
+[; ;LEDarray.c: 129: {
+[f ]
+"131
+[; ;LEDarray.c: 131:     if (1<=hour<=5) {
+[e $ ! <= -> <= -> -> 1 `i `ui _hour `i -> 5 `i 2049  ]
+{
+"132
+[; ;LEDarray.c: 132:         LATHbits.LATH3=1;
+[e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
+"133
+[; ;LEDarray.c: 133:     }
+}
+[e $U 2050  ]
+"134
+[; ;LEDarray.c: 134:     else {
+[e :U 2049 ]
+{
+"135
+[; ;LEDarray.c: 135:         LATHbits.LATH3=0;
+[e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
+"136
+[; ;LEDarray.c: 136:     }
+}
+[e :U 2050 ]
+"137
+[; ;LEDarray.c: 137: }
+[e :UE 2048 ]
 }

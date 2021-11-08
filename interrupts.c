@@ -38,12 +38,13 @@ void __interrupt(high_priority) HighISR()  //this interrupt flag is for the time
         
         count_in_minutes++;             //this is the ISR, so every time the timer overflows (every minute) the minute counter increases
         TMR0H=0b00011011;            //write High reg first, update happens when low reg is written to
-        TMR0L=0b00011101;
+        TMR0L=0b00011101;           
+        //this is the offset needed so that the interrupt flag is set off every minute
                      
         PIR0bits.TMR0IF=0;      //reset the flag that triggers the ISR 
     }       
-    }
-    if (PIR2bits.C1IF) {            //this checks if the flag PIR2bits.C1IF was triggered. if this value changes to 1 
+    
+    if (PIR2bits.C1IF) {            //this checks if the LDR voltage changes past the threshold which in turn changes the output value of the pin. 
         LATHbits.LATH3=1; //this is the action we want to perform if this flag is triggered which is turn on LED
         PIR2bits.C1IF=0;    // this clears the flag,i.e resets it back to 0 so it can be triggered again in future.
         

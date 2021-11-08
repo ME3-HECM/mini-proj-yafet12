@@ -24192,7 +24192,6 @@ void __attribute__((picinterrupt(("high_priority")))) HighISR();
 
 extern volatile unsigned int count_in_minutes;
 extern unsigned int hour;
-unsigned char night_time;
 # 2 "interrupts.c" 2
 # 11 "interrupts.c"
 volatile unsigned int count_in_minutes;
@@ -24227,14 +24226,10 @@ void __attribute__((picinterrupt(("high_priority")))) HighISR()
         TMR0H=0b00011011;
         TMR0L=0b00011101;
 
+
         PIR0bits.TMR0IF=0;
     }
 
-    if (night_time) {
-
-        LATHbits.LATH3=!LATHbits.LATH3;
-
-    }
     if (PIR2bits.C1IF) {
         LATHbits.LATH3=1;
         PIR2bits.C1IF=0;

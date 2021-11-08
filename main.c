@@ -22,7 +22,7 @@
  * 
  */
 
-unsigned char night_time;  //introduce this variable to let us know whether it is between 1-5am (1) or not 0. automatically 0 at first
+
 void main(void) {
     
     LEDarray_init();            //initialise all the pins connected to the LED array

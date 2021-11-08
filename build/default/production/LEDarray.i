@@ -24191,6 +24191,7 @@ void LEDarray_disp_bin(unsigned int number);
 void LEDarray_disp_dec(unsigned int number);
 void LEDarray_disp_PPM(unsigned int number, unsigned int max);
 void Button_init(void);
+void LED_night_time_check(unsigned int hour);
 # 2 "LEDarray.c" 2
 
 
@@ -24309,4 +24310,15 @@ void LEDarray_disp_PPM(unsigned int cur_val, unsigned int max)
 
 
  LEDarray_disp_bin(disp_val);
+}
+
+void LED_night_time_check(unsigned int hour)
+{
+
+    if (1<=hour<=5) {
+        LATHbits.LATH3=1;
+    }
+    else {
+        LATHbits.LATH3=0;
+    }
 }

@@ -51,81 +51,13 @@ void LEDarray_disp_bin(unsigned int number)
     __delay_ms(50);    //delay so that change can be seen
 }
  
-	//some code to turn on/off the pins connected to the LED array
-	//if statements and bit masks can be used to determine if a particular pin should be on/off
-	//see Readme.md for examples
-
-
-void Button_init(void) 
-{
-    
-    TRISFbits.TRISF2 = 1; //set TRIS value for pin (input)
-    ANSELFbits.ANSELF2=0; //turn off analogue input on pin
-    
-    }
-/************************************
-/ Function LEDarray_disp_dec
-/ Used to display a number on the LEDs
-/ where each LED is a value of 10
-************************************/
-void LEDarray_disp_dec(unsigned int number)
-{
-	unsigned int disp_val;
-    int index = 0b000000001;
-    int shift;
-    if (number >= 10) {
-        shift = number/10 - 1;
-        disp_val = index << shift;}
-    else {disp_val = 0b000000000;}
-     
-    
 	
-	//some code to manipulate the variable number into the correct
-	//format and store in disp_val for display on the LED array
-
-	LEDarray_disp_bin(disp_val); 	//display value on LED array
-}
 
 
-/************************************
-/ LEDarray_disp_PPM
-/ Function used to display a level on the LED array with peak hold
-/ cur_val is the current level from the most recent sample, and max is the peak value for the last second
-/ these input values need to calculated else where in your code
-************************************/
-void LEDarray_disp_PPM(unsigned int cur_val, unsigned int max)
-{
-	unsigned int disp_val;
-    int constant = 0b11111111;
-    int shift;
-    
-    if (cur_val>max) {
-        
-        if (cur_val>=10) {        //ensures bit doesn't go above 10
-            cur_val = 10;
-        }
-        shift = 10-cur_val;       //this will tell us how many LEDs to turn off
-        disp_val = constant>>(shift);
-    }
-    else {
-        __delay_ms(1000);
-       
-        if (max>=10) {        //ensures bit doesn't go above 10
-            max = 10;
-        }
-        shift = 10-max;       //this will tell us how many LEDs to turn off
-        disp_val = constant>>(shift);
-        
-    }
-    
-	
-	// some code to format the variable cur_val and max, store in disp_val for display on the LED array
-	// hint: one method is to manipulate the variables separately and then combine them using the bitwise OR operator
-
-	LEDarray_disp_bin(disp_val);	//display value on LED array
-}
+   
 //this function controls whether the LED is on or off during the hours (1am-5am)
-void LED_night_time_check(unsigned int hour) {
+void LED_night_time_check(unsigned int hour) 
+{
     
     if (1<=hour<=5) {
         LATHbits.LATH3=1;  //LED turns on between (1-5am) 
