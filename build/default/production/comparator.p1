@@ -2216,65 +2216,65 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;comparator.c: 51: }
 [e :UE 2021 ]
 }
-"53
-[; ;comparator.c: 53: void Check_Leap_year(year_global) {
+"54
+[; ;comparator.c: 54: void Check_Leap_year(year_global) {
 [v _Check_Leap_year `(v ~T0 @X0 1 ef1`i ]
 {
 [e :U _Check_Leap_year ]
 [v _year_global `i ~T0 @X0 1 r1 ]
 [f ]
-"55
-[; ;comparator.c: 55:     if (year_global%4==0) {
+"56
+[; ;comparator.c: 56:     if (year_global%4==0) {
 [e $ ! == % _year_global -> 4 `i -> 0 `i 2024  ]
 {
-"57
-[; ;comparator.c: 57:         leap_year_constant = 1;
-[e = _leap_year_constant -> 1 `i ]
 "58
-[; ;comparator.c: 58:         if (day_global==(31+28) & leap_year_constant==1) {
-[e $ ! & == _day_global + -> 31 `i -> 28 `i == _leap_year_constant -> 1 `i 2025  ]
-{
+[; ;comparator.c: 58:         leap_year_constant = 1;
+[e = _leap_year_constant -> 1 `i ]
 "59
-[; ;comparator.c: 59:             day_global-=1;
-[e =- _day_global -> 1 `i ]
+[; ;comparator.c: 59:         if ((day_global==59) && (leap_year_constant==1)) {
+[e $ ! && == _day_global -> 59 `i == _leap_year_constant -> 1 `i 2025  ]
+{
 "60
-[; ;comparator.c: 60:         }
+[; ;comparator.c: 60:             day_global-=1;
+[e =- _day_global -> 1 `i ]
+"61
+[; ;comparator.c: 61:         }
 }
 [e :U 2025 ]
-"61
-[; ;comparator.c: 61:     }
+"62
+[; ;comparator.c: 62:     }
 }
 [e $U 2026  ]
-"62
-[; ;comparator.c: 62:     else {leap_year_constant=0;}
+"63
+[; ;comparator.c: 63:     else {leap_year_constant=0;}
 [e :U 2024 ]
 {
 [e = _leap_year_constant -> 0 `i ]
 }
 [e :U 2026 ]
-"64
-[; ;comparator.c: 64: }
+"65
+[; ;comparator.c: 65: }
 [e :UE 2023 ]
 }
-"66
-[; ;comparator.c: 66: void calibration(unsigned int hour) {
+"67
+[; ;comparator.c: 67: void calibration(unsigned int hour) {
 [v _calibration `(v ~T0 @X0 1 ef1`ui ]
 {
 [e :U _calibration ]
 [v _hour `ui ~T0 @X0 1 r1 ]
 [f ]
-"68
-[; ;comparator.c: 68:     if (hour==midnight_global) {
+"69
+[; ;comparator.c: 69:     if (hour==midnight_global) {
 [e $ ! == _hour -> _midnight_global `ui 2028  ]
 {
-"70
-[; ;comparator.c: 70:         T0CON0bits.T0EN=1;
-[e = . . _T0CON0bits 0 4 -> -> 1 `i `uc ]
 "71
-[; ;comparator.c: 71:     }
+[; ;comparator.c: 71:         T0CON0bits.T0EN=1;
+[e = . . _T0CON0bits 0 4 -> -> 1 `i `uc ]
+"72
+[; ;comparator.c: 72:     }
 }
 [e :U 2028 ]
-"72
-[; ;comparator.c: 72: }
+"73
+[; ;comparator.c: 73: }
 [e :UE 2027 ]
 }

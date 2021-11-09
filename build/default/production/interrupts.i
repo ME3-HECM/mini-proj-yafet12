@@ -24201,7 +24201,7 @@ unsigned int timer_overflow_flag;
 
 
 
-
+int recorded_minute;
 int night=0;
 unsigned int timer_overflow_flag;
 volatile unsigned int count_in_minutes;

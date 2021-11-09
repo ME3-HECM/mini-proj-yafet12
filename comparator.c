@@ -50,12 +50,13 @@ void Reset_time(int day) {
 
 }
 
+
 void Check_Leap_year(year_global) {
     
     if (year_global%4==0) {
         
         leap_year_constant = 1;
-        if (day_global==(31+28) & leap_year_constant==1) {
+        if ((day_global==59) && (leap_year_constant==1)) {
             day_global-=1;
         }
     }

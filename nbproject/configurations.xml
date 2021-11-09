@@ -27,6 +27,7 @@
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <itemPath>Project_Explanation.txt</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>.</Elem>

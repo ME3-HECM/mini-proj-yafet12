@@ -14,6 +14,7 @@
 #include "interrupts.h"
 #include "comparator.h"
 #include "timers.h"
+#include "extrafunctions.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -53,8 +54,8 @@ void main(void) {
         }
         else {LEDarray_disp_bin(count_in_minutes);}
         
-        night = Check_if_between_1and5(count_in_minutes); 
-        //display the hour of the day on the LED
+        night = Check_if_between_1and5(count_in_minutes);   //function checks if the time is between 1 and 5am.  
+        
         
  
         Reset_time(day_global);        //this function will reset the hour counter everyday

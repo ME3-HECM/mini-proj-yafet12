@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.32\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\mini-proj-yafet12.X.production.sym \
   --cmf=dist/default/production\mini-proj-yafet12.X.production.cmf -z \
-  -Q18F67K40 -oC:\Users\yafet\AppData\Local\Temp\xcAshfs.4 \
+  -Q18F67K40 -oC:\Users\yafet\AppData\Local\Temp\xcAsico.4 \
   --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/mini-proj-yafet12.X.production.map -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ASTACK=060h-0DE9h -pstack=STACK \
@@ -28,7 +28,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\yafet\AppData\Local\Temp\xcAshfs.o \
+  C:\Users\yafet\AppData\Local\Temp\xcAsico.o \
   dist/default/production\mini-proj-yafet12.X.production.o 
 
 Object code version is 3.11
@@ -38,7 +38,7 @@ Machine type is 18F67K40
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\yafet\AppData\Local\Temp\xcAshfs.o
+C:\Users\yafet\AppData\Local\Temp\xcAsico.o
                 idloc                            200000   200000       10        0       5
                 config                           300000   300000        C        0       4
                 init                                 7C       7C        4        4       0
@@ -47,7 +47,7 @@ dist/default/production\mini-proj-yafet12.X.production.o
                 intcode                               8        8       74        4       0
                 idloc                            200000   200000       10        0       5
                 config                           300000   300000        C        0       4
-                temp                                 1B       1B        1        1       1
+                temp                                 1D       1D        1        1       1
                 text11                              29C      29C       4E        4       0
                 text10                              2EA      2EA       46        4       0
                 text9                               402      402       14        4       0
@@ -60,9 +60,9 @@ dist/default/production\mini-proj-yafet12.X.production.o
                 text2                               238      238       64        4       0
                 text1                               3EC      3EC       16        4       0
                 text0                               160      160       D8        4       0
-                cstackCOMRAM                         14       14        5        1       1
-                dataCOMRAM                           19       19        2        1       1
-                bssCOMRAM                             1        1       13        1       1
+                cstackCOMRAM                         16       16        5        1       1
+                dataCOMRAM                           1B       1B        2        1       1
+                bssCOMRAM                             1        1       15        1       1
                 cinit                               330      330       2E        4       0
                 idataCOMRAM                         424      424        2        4       0
 
@@ -95,10 +95,10 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   MEDIUMCONST    
 
         CLASS   COMRAM         
-                temp                                 1B       1B        1         1
-                cstackCOMRAM                         14       14        5         1
-                dataCOMRAM                           19       19        2         1
-                bssCOMRAM                             1        1       13         1
+                temp                                 1D       1D        1         1
+                cstackCOMRAM                         16       16        5         1
+                dataCOMRAM                           1B       1B        2         1
+                bssCOMRAM                             1        1       15         1
 
         CLASS   ABS1           
 
@@ -151,7 +151,7 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
                 reset_vec                      000000  000004  000004         0       0  CODE    
-                bssCOMRAM                      000001  00001B  00001C         1       1  COMRAM  
+                bssCOMRAM                      000001  00001D  00001E         1       1  COMRAM  
                 intcode                        000008  00041E  000426         4       0  CODE    
 
 
@@ -172,10 +172,10 @@ UNUSED ADDRESS RANGES
         BANK7            000700-0007FF              100
         BANK8            000800-0008FF              100
         BANK9            000900-0009FF              100
-        BIGRAM           00001C-000DE9              DCE
+        BIGRAM           00001E-000DE9              DCC
         CODE             000004-000007                4
                          000426-01FFFF            1FBDA
-        COMRAM           00001C-00005F               44
+        COMRAM           00001E-00005F               42
         CONST            000004-000007                4
                          000426-01FFFF            1FBDA
         EEDATA           310000-3103FF              400
@@ -188,12 +188,12 @@ UNUSED ADDRESS RANGES
 
                                   Symbol Table
 
-?_Check_if_between_1and5         cstackCOMRAM 000014
-?___lwmod                        cstackCOMRAM 000014
-Check_Leap_year@year_global      cstackCOMRAM 000014
-Check_if_between_1and5@hour      cstackCOMRAM 000014
-LEDarray_disp_bin@number         cstackCOMRAM 000014
-Reset_time@day                   cstackCOMRAM 000014
+?_Check_if_between_1and5         cstackCOMRAM 000016
+?___lwmod                        cstackCOMRAM 000016
+Check_Leap_year@year_global      cstackCOMRAM 000016
+Check_if_between_1and5@hour      cstackCOMRAM 000016
+LEDarray_disp_bin@number         cstackCOMRAM 000016
+Reset_time@day                   cstackCOMRAM 000016
 _CM1CON0bits                     (abs)        000ED0
 _CM1CON1bits                     (abs)        000ED1
 _CM1NCHbits                      (abs)        000ED2
@@ -290,12 +290,12 @@ __Hrparam                        rparam       000000
 __Hsfr                           sfr          000000
 __Hsmallconst                    smallconst   000000
 __Hspace_0                       (abs)        000E00
-__Hspace_1                       (abs)        00001C
+__Hspace_1                       (abs)        00001E
 __Hspace_2                       (abs)        000000
 __Hspace_4                       (abs)        60000C
 __Hstack                         stack        000000
 __Hstruct                        struct       000000
-__Htemp                          temp         00001C
+__Htemp                          temp         00001E
 __Htext                          text         000000
 __Htext0                         text0        000000
 __Htext1                         text1        000000
@@ -375,7 +375,7 @@ __Lspace_2                       (abs)        000000
 __Lspace_4                       (abs)        000000
 __Lstack                         stack        000000
 __Lstruct                        struct       000000
-__Ltemp                          temp         00001B
+__Ltemp                          temp         00001D
 __Ltext                          text         000000
 __Ltext0                         text0        000000
 __Ltext1                         text1        000000
@@ -390,16 +390,16 @@ __Ltext7                         text7        000000
 __Ltext8                         text8        000000
 __Ltext9                         text9        000000
 __S0                             (abs)        000426
-__S1                             (abs)        00001C
+__S1                             (abs)        00001E
 __S2                             (abs)        000000
 __S4                             (abs)        000000
 __S5                             (abs)        000000
 ___inthi_sp                      stack        000000
 ___intlo_sp                      stack        000000
 ___lwmod                         text2        000238
-___lwmod@counter                 cstackCOMRAM 000018
-___lwmod@dividend                cstackCOMRAM 000014
-___lwmod@divisor                 cstackCOMRAM 000016
+___lwmod@counter                 cstackCOMRAM 00001A
+___lwmod@dividend                cstackCOMRAM 000016
+___lwmod@divisor                 cstackCOMRAM 000018
 ___param_bank                    (abs)        000000
 ___rparam_used                   (abs)        000001
 ___sp                            stack        000000
@@ -423,8 +423,8 @@ __initialization                 cinit        000330
 __mediumconst                    mediumconst  000000
 __pbssCOMRAM                     bssCOMRAM    000001
 __pcinit                         cinit        000330
-__pcstackCOMRAM                  cstackCOMRAM 000014
-__pdataCOMRAM                    dataCOMRAM   000019
+__pcstackCOMRAM                  cstackCOMRAM 000016
+__pdataCOMRAM                    dataCOMRAM   00001B
 __pidataCOMRAM                   idataCOMRAM  000424
 __pintcode                       intcode      000008
 __ptext0                         text0        000160
@@ -455,22 +455,23 @@ __size_of_calibration            (abs)        000000
 __size_of_main                   (abs)        000000
 __smallconst                     smallconst   000000
 _calibration                     text1        0003EC
-_count_in_minutes                bssCOMRAM    00000F
-_day_global                      bssCOMRAM    00000D
-_disp_val                        bssCOMRAM    000007
-_hour                            bssCOMRAM    000011
+_count_in_minutes                bssCOMRAM    000011
+_day_global                      bssCOMRAM    00000F
+_disp_val                        bssCOMRAM    000009
+_hour                            bssCOMRAM    000013
 _hour_global                     bssCOMRAM    000003
-_leap_year                       bssCOMRAM    000013
+_leap_year                       bssCOMRAM    000015
 _leap_year_constant              bssCOMRAM    000005
 _main                            text0        000160
 _midnight_global                 bssCOMRAM    000001
-_night                           bssCOMRAM    00000B
-_timer_overflow_flag             bssCOMRAM    000009
-_year_global                     dataCOMRAM   000019
-btemp                            temp         00001B
-calibration@hour                 cstackCOMRAM 000014
+_night                           bssCOMRAM    00000D
+_recorded_minute                 bssCOMRAM    000007
+_timer_overflow_flag             bssCOMRAM    00000B
+_year_global                     dataCOMRAM   00001B
+btemp                            temp         00001D
+calibration@hour                 cstackCOMRAM 000016
 end_of_initialization            cinit        000354
-int$flags                        temp         00001B
+int$flags                        temp         00001D
 intlevel0                        text         000000
 intlevel1                        text         000000
 intlevel2                        text         000000
@@ -481,10 +482,10 @@ stackhi                          (abs)        000DE9
 stacklo                          (abs)        000060
 start                            init         00007C
 start_initialization             cinit        000330
-ttemp5                           temp         00001C
-ttemp6                           temp         00001F
-ttemp7                           temp         000023
-wtemp8                           temp         00001C
+ttemp5                           temp         00001E
+ttemp6                           temp         000021
+ttemp7                           temp         000025
+wtemp8                           temp         00001E
 
 
 MODULE INFORMATION

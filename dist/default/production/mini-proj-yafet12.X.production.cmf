@@ -27,13 +27,13 @@ text9 CODE 0 402 402 14 1
 text10 CODE 0 2EA 2EA 46 1
 text11 CODE 0 29C 29C 4E 1
 idataCOMRAM CODE 0 424 424 2 1
-cstackCOMRAM COMRAM 1 14 14 5 1
-temp COMRAM 1 1B 1B 1 1
+cstackCOMRAM COMRAM 1 16 16 5 1
+temp COMRAM 1 1D 1D 1 1
 intcode CODE 0 8 8 74 1
-dataCOMRAM COMRAM 1 19 19 2 1
-bssCOMRAM COMRAM 1 1 1 13 1
+dataCOMRAM COMRAM 1 1B 1B 2 1
+bssCOMRAM COMRAM 1 1 1 15 1
 config CONFIG 4 300000 300000 C 1
-$C:\Users\yafet\AppData\Local\Temp\xcAshfs.o
+$C:\Users\yafet\AppData\Local\Temp\xcAsico.o
 idloc IDLOC 5 200000 200000 10 1
 init CODE 0 7C 7C 4 1
 reset_vec CODE 0 0 0 4 1
@@ -66,8 +66,8 @@ BANK10 A00-AFF 1
 BANK11 B00-BFF 1
 BANK12 C00-CFF 1
 BANK13 D00-DE9 1
-BIGRAM 1C-DE9 1
-COMRAM 1C-5F 1
+BIGRAM 1E-DE9 1
+COMRAM 1E-5F 1
 EEDATA 310000-3103FF 1
 MEDIUMCONST E00-FFFF 1
 MEDIUMCONST 10E00-1FFFF 1
@@ -85,7 +85,7 @@ MEDIUMCONST 10E00-1FFFF 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\mini-proj-yafet12.X.production.o
-8 intcode CODE >8641:C:\Users\yafet\AppData\Local\Temp\xcAshfs.s
+8 intcode CODE >8645:C:\Users\yafet\AppData\Local\Temp\xcAsico.s
 8 intcode CODE >34:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\interrupts.c
 A intcode CODE >37:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\interrupts.c
 1A intcode CODE >39:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\interrupts.c
@@ -104,13 +104,13 @@ A intcode CODE >37:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\interrupts.
 76 intcode CODE >59:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\interrupts.c
 76 intcode CODE >60:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\interrupts.c
 78 intcode CODE >68:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\interrupts.c
-29C text11 CODE >53:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\comparator.c
-29C text11 CODE >55:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\comparator.c
-2BA text11 CODE >57:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\comparator.c
-2C2 text11 CODE >58:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\comparator.c
-2D6 text11 CODE >59:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\comparator.c
-2E0 text11 CODE >62:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\comparator.c
-2E8 text11 CODE >64:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\comparator.c
+29C text11 CODE >54:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\comparator.c
+29C text11 CODE >56:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\comparator.c
+2BA text11 CODE >58:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\comparator.c
+2C2 text11 CODE >59:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\comparator.c
+2D6 text11 CODE >60:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\comparator.c
+2E0 text11 CODE >63:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\comparator.c
+2E8 text11 CODE >65:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\comparator.c
 2EA text10 CODE >54:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\LEDarray.c
 2EA text10 CODE >56:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\LEDarray.c
 312 text10 CODE >58:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\LEDarray.c
@@ -201,55 +201,55 @@ EE text6 CODE >47:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\LEDarray.c
 292 text2 CODE >23:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\lwmod.c
 292 text2 CODE >24:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\lwmod.c
 29A text2 CODE >25:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\lwmod.c
-3EC text1 CODE >66:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\comparator.c
-3EC text1 CODE >68:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\comparator.c
-3FE text1 CODE >70:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\comparator.c
-400 text1 CODE >72:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\comparator.c
-160 text0 CODE >26:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
-160 text0 CODE >28:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
-164 text0 CODE >29:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
-166 text0 CODE >30:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
-168 text0 CODE >32:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
-16C text0 CODE >33:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
-170 text0 CODE >34:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
-174 text0 CODE >35:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
-178 text0 CODE >37:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
-184 text0 CODE >43:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
-1BC text0 CODE >45:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
-1C0 text0 CODE >46:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
-1C8 text0 CODE >49:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
-1DC text0 CODE >50:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
-1E8 text0 CODE >51:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
-1EC text0 CODE >52:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
-1F4 text0 CODE >53:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
-1F8 text0 CODE >54:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
-204 text0 CODE >56:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
-218 text0 CODE >60:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
-224 text0 CODE >61:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
-330 cinit CODE >6784:C:\Users\yafet\AppData\Local\Temp\xcAshfs.s
-330 cinit CODE >6786:C:\Users\yafet\AppData\Local\Temp\xcAshfs.s
-330 cinit CODE >6789:C:\Users\yafet\AppData\Local\Temp\xcAshfs.s
-330 cinit CODE >6839:C:\Users\yafet\AppData\Local\Temp\xcAshfs.s
-332 cinit CODE >6840:C:\Users\yafet\AppData\Local\Temp\xcAshfs.s
-334 cinit CODE >6841:C:\Users\yafet\AppData\Local\Temp\xcAshfs.s
-336 cinit CODE >6842:C:\Users\yafet\AppData\Local\Temp\xcAshfs.s
-338 cinit CODE >6843:C:\Users\yafet\AppData\Local\Temp\xcAshfs.s
-33A cinit CODE >6844:C:\Users\yafet\AppData\Local\Temp\xcAshfs.s
-33C cinit CODE >6845:C:\Users\yafet\AppData\Local\Temp\xcAshfs.s
-33E cinit CODE >6846:C:\Users\yafet\AppData\Local\Temp\xcAshfs.s
-342 cinit CODE >6847:C:\Users\yafet\AppData\Local\Temp\xcAshfs.s
-344 cinit CODE >6848:C:\Users\yafet\AppData\Local\Temp\xcAshfs.s
-348 cinit CODE >6852:C:\Users\yafet\AppData\Local\Temp\xcAshfs.s
-34C cinit CODE >6853:C:\Users\yafet\AppData\Local\Temp\xcAshfs.s
-34E cinit CODE >6854:C:\Users\yafet\AppData\Local\Temp\xcAshfs.s
-34E cinit CODE >6855:C:\Users\yafet\AppData\Local\Temp\xcAshfs.s
-350 cinit CODE >6856:C:\Users\yafet\AppData\Local\Temp\xcAshfs.s
-352 cinit CODE >6857:C:\Users\yafet\AppData\Local\Temp\xcAshfs.s
-354 cinit CODE >6863:C:\Users\yafet\AppData\Local\Temp\xcAshfs.s
-354 cinit CODE >6865:C:\Users\yafet\AppData\Local\Temp\xcAshfs.s
-356 cinit CODE >6866:C:\Users\yafet\AppData\Local\Temp\xcAshfs.s
-358 cinit CODE >6867:C:\Users\yafet\AppData\Local\Temp\xcAshfs.s
-35A cinit CODE >6868:C:\Users\yafet\AppData\Local\Temp\xcAshfs.s
+3EC text1 CODE >67:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\comparator.c
+3EC text1 CODE >69:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\comparator.c
+3FE text1 CODE >71:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\comparator.c
+400 text1 CODE >73:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\comparator.c
+160 text0 CODE >27:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
+160 text0 CODE >29:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
+164 text0 CODE >30:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
+166 text0 CODE >31:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
+168 text0 CODE >33:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
+16C text0 CODE >34:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
+170 text0 CODE >35:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
+174 text0 CODE >36:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
+178 text0 CODE >38:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
+184 text0 CODE >44:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
+1BC text0 CODE >46:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
+1C0 text0 CODE >47:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
+1C8 text0 CODE >50:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
+1DC text0 CODE >51:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
+1E8 text0 CODE >52:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
+1EC text0 CODE >53:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
+1F4 text0 CODE >54:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
+1F8 text0 CODE >55:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
+204 text0 CODE >57:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
+218 text0 CODE >61:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
+224 text0 CODE >62:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\main.c
+330 cinit CODE >6784:C:\Users\yafet\AppData\Local\Temp\xcAsico.s
+330 cinit CODE >6786:C:\Users\yafet\AppData\Local\Temp\xcAsico.s
+330 cinit CODE >6789:C:\Users\yafet\AppData\Local\Temp\xcAsico.s
+330 cinit CODE >6843:C:\Users\yafet\AppData\Local\Temp\xcAsico.s
+332 cinit CODE >6844:C:\Users\yafet\AppData\Local\Temp\xcAsico.s
+334 cinit CODE >6845:C:\Users\yafet\AppData\Local\Temp\xcAsico.s
+336 cinit CODE >6846:C:\Users\yafet\AppData\Local\Temp\xcAsico.s
+338 cinit CODE >6847:C:\Users\yafet\AppData\Local\Temp\xcAsico.s
+33A cinit CODE >6848:C:\Users\yafet\AppData\Local\Temp\xcAsico.s
+33C cinit CODE >6849:C:\Users\yafet\AppData\Local\Temp\xcAsico.s
+33E cinit CODE >6850:C:\Users\yafet\AppData\Local\Temp\xcAsico.s
+342 cinit CODE >6851:C:\Users\yafet\AppData\Local\Temp\xcAsico.s
+344 cinit CODE >6852:C:\Users\yafet\AppData\Local\Temp\xcAsico.s
+348 cinit CODE >6856:C:\Users\yafet\AppData\Local\Temp\xcAsico.s
+34C cinit CODE >6857:C:\Users\yafet\AppData\Local\Temp\xcAsico.s
+34E cinit CODE >6858:C:\Users\yafet\AppData\Local\Temp\xcAsico.s
+34E cinit CODE >6859:C:\Users\yafet\AppData\Local\Temp\xcAsico.s
+350 cinit CODE >6860:C:\Users\yafet\AppData\Local\Temp\xcAsico.s
+352 cinit CODE >6861:C:\Users\yafet\AppData\Local\Temp\xcAsico.s
+354 cinit CODE >6867:C:\Users\yafet\AppData\Local\Temp\xcAsico.s
+354 cinit CODE >6869:C:\Users\yafet\AppData\Local\Temp\xcAsico.s
+356 cinit CODE >6870:C:\Users\yafet\AppData\Local\Temp\xcAsico.s
+358 cinit CODE >6871:C:\Users\yafet\AppData\Local\Temp\xcAsico.s
+35A cinit CODE >6872:C:\Users\yafet\AppData\Local\Temp\xcAsico.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -262,42 +262,43 @@ EE text6 CODE >47:C:\Users\yafet\MPLABXProjects\mini-proj-yafet12.X\LEDarray.c
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
-___lwmod@counter 18 0 COMRAM 1 cstackCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
+___lwmod@counter 1A 0 COMRAM 1 cstackCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
 __Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\mini-proj-yafet12.X.production.o
 __Hspace_0 E00 0 ABS 0 - dist/default/production\mini-proj-yafet12.X.production.o
-__Hspace_1 1C 0 ABS 0 - dist/default/production\mini-proj-yafet12.X.production.o
+__Hspace_1 1E 0 ABS 0 - dist/default/production\mini-proj-yafet12.X.production.o
 __Hspace_2 0 0 ABS 0 - dist/default/production\mini-proj-yafet12.X.production.o
 __Hspace_4 60000C 0 ABS 0 - dist/default/production\mini-proj-yafet12.X.production.o
-_year_global 19 0 COMRAM 1 dataCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
+_year_global 1B 0 COMRAM 1 dataCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\mini-proj-yafet12.X.production.o
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\yafet\AppData\Local\Temp\xcAshfs.o
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\yafet\AppData\Local\Temp\xcAsico.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\mini-proj-yafet12.X.production.o
 __Lsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\mini-proj-yafet12.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\yafet\AppData\Local\Temp\xcAshfs.o
-_hour 11 0 COMRAM 1 bssCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
+___sp 0 0 STACK 2 stack C:\Users\yafet\AppData\Local\Temp\xcAsico.o
+_hour 13 0 COMRAM 1 bssCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
 _main 160 0 CODE 0 text0 dist/default/production\mini-proj-yafet12.X.production.o
-btemp 1B 0 COMRAM 1 temp dist/default/production\mini-proj-yafet12.X.production.o
-start 7C 0 CODE 0 init C:\Users\yafet\AppData\Local\Temp\xcAshfs.o
+btemp 1D 0 COMRAM 1 temp dist/default/production\mini-proj-yafet12.X.production.o
+start 7C 0 CODE 0 init C:\Users\yafet\AppData\Local\Temp\xcAsico.o
 __size_of_main 0 0 ABS 0 - dist/default/production\mini-proj-yafet12.X.production.o
 __size_of___lwmod 0 0 ABS 0 - dist/default/production\mini-proj-yafet12.X.production.o
 __HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
+_recorded_minute 7 0 COMRAM 1 bssCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
 __Hpowerup 7C 0 CODE 0 powerup dist/default/production\mini-proj-yafet12.X.production.o
 _DAC_init 402 0 CODE 0 text9 dist/default/production\mini-proj-yafet12.X.production.o
-_disp_val 7 0 COMRAM 1 bssCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
-ttemp5 1C 0 COMRAM 1 temp dist/default/production\mini-proj-yafet12.X.production.o
-ttemp6 1F 0 COMRAM 1 temp dist/default/production\mini-proj-yafet12.X.production.o
-ttemp7 23 0 COMRAM 1 temp dist/default/production\mini-proj-yafet12.X.production.o
+_disp_val 9 0 COMRAM 1 bssCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
+ttemp5 1E 0 COMRAM 1 temp dist/default/production\mini-proj-yafet12.X.production.o
+ttemp6 21 0 COMRAM 1 temp dist/default/production\mini-proj-yafet12.X.production.o
+ttemp7 25 0 COMRAM 1 temp dist/default/production\mini-proj-yafet12.X.production.o
 __HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
 _LEDarray_init 35E 0 CODE 0 text5 dist/default/production\mini-proj-yafet12.X.production.o
-__accesstop 60 0 ABS 0 - C:\Users\yafet\AppData\Local\Temp\xcAshfs.o
-intlevel0 0 0 CODE 0 text C:\Users\yafet\AppData\Local\Temp\xcAshfs.o
-intlevel1 0 0 CODE 0 text C:\Users\yafet\AppData\Local\Temp\xcAshfs.o
-intlevel2 0 0 CODE 0 text C:\Users\yafet\AppData\Local\Temp\xcAshfs.o
-intlevel3 0 0 CODE 0 text C:\Users\yafet\AppData\Local\Temp\xcAshfs.o
+__accesstop 60 0 ABS 0 - C:\Users\yafet\AppData\Local\Temp\xcAsico.o
+intlevel0 0 0 CODE 0 text C:\Users\yafet\AppData\Local\Temp\xcAsico.o
+intlevel1 0 0 CODE 0 text C:\Users\yafet\AppData\Local\Temp\xcAsico.o
+intlevel2 0 0 CODE 0 text C:\Users\yafet\AppData\Local\Temp\xcAsico.o
+intlevel3 0 0 CODE 0 text C:\Users\yafet\AppData\Local\Temp\xcAsico.o
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
 __end_of_DAC_init 416 0 CODE 0 text9 dist/default/production\mini-proj-yafet12.X.production.o
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\mini-proj-yafet12.X.production.o
-wtemp8 1C 0 COMRAM 1 temp dist/default/production\mini-proj-yafet12.X.production.o
+wtemp8 1E 0 COMRAM 1 temp dist/default/production\mini-proj-yafet12.X.production.o
 __size_of_Timer0_init 0 0 ABS 0 - dist/default/production\mini-proj-yafet12.X.production.o
 __Hifardata 0 0 CODE 0 ifardata dist/default/production\mini-proj-yafet12.X.production.o
 __size_of_Comp1_init 0 0 ABS 0 - dist/default/production\mini-proj-yafet12.X.production.o
@@ -307,9 +308,9 @@ __pidataCOMRAM 424 0 CODE 0 idataCOMRAM dist/default/production\mini-proj-yafet1
 _LEDarray_disp_bin 80 0 CODE 0 text6 dist/default/production\mini-proj-yafet12.X.production.o
 _calibration 3EC 0 CODE 0 text1 dist/default/production\mini-proj-yafet12.X.production.o
 __end_of_Interrupts_init 424 0 CODE 0 text7 dist/default/production\mini-proj-yafet12.X.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\yafet\AppData\Local\Temp\xcAshfs.o
-_timer_overflow_flag 9 0 COMRAM 1 bssCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\yafet\AppData\Local\Temp\xcAshfs.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\yafet\AppData\Local\Temp\xcAsico.o
+_timer_overflow_flag B 0 COMRAM 1 bssCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\yafet\AppData\Local\Temp\xcAsico.o
 __LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\mini-proj-yafet12.X.production.o
 __Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\mini-proj-yafet12.X.production.o
@@ -319,17 +320,17 @@ __Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\mini-proj-y
 __size_of_HighISR 0 0 ABS 0 - dist/default/production\mini-proj-yafet12.X.production.o
 __Hintcodelo 7C 0 CODE 0 intcodelo dist/default/production\mini-proj-yafet12.X.production.o
 _Reset_time 3AA 0 CODE 0 text4 dist/default/production\mini-proj-yafet12.X.production.o
-___lwmod@divisor 16 0 COMRAM 1 cstackCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
+___lwmod@divisor 18 0 COMRAM 1 cstackCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
 __end_of___lwmod 29C 0 CODE 0 text2 dist/default/production\mini-proj-yafet12.X.production.o
-_leap_year 13 0 COMRAM 1 bssCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
+_leap_year 15 0 COMRAM 1 bssCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
 __LidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
-___lwmod@dividend 14 0 COMRAM 1 cstackCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
+___lwmod@dividend 16 0 COMRAM 1 cstackCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
 __Lintcodelo 7C 0 CODE 0 intcodelo dist/default/production\mini-proj-yafet12.X.production.o
 _Interrupts_init 416 0 CODE 0 text7 dist/default/production\mini-proj-yafet12.X.production.o
 start_initialization 330 0 CODE 0 cinit dist/default/production\mini-proj-yafet12.X.production.o
 __size_of_LEDarray_init 0 0 ABS 0 - dist/default/production\mini-proj-yafet12.X.production.o
 __HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\mini-proj-yafet12.X.production.o
-_day_global D 0 COMRAM 1 bssCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
+_day_global F 0 COMRAM 1 bssCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
 _TRISAbits F81 0 ABS 0 - dist/default/production\mini-proj-yafet12.X.production.o
 _TRISBbits F82 0 ABS 0 - dist/default/production\mini-proj-yafet12.X.production.o
 _TRISFbits F86 0 ABS 0 - dist/default/production\mini-proj-yafet12.X.production.o
@@ -338,7 +339,7 @@ _TRISHbits F88 0 ABS 0 - dist/default/production\mini-proj-yafet12.X.production.
 ___rparam_used 1 0 ABS 0 - dist/default/production\mini-proj-yafet12.X.production.o
 _midnight_global 1 0 COMRAM 1 bssCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
 __end_of_Reset_time 3CE 0 CODE 0 text4 dist/default/production\mini-proj-yafet12.X.production.o
-isa$xinst 0 0 ABS 0 - C:\Users\yafet\AppData\Local\Temp\xcAshfs.o
+isa$xinst 0 0 ABS 0 - C:\Users\yafet\AppData\Local\Temp\xcAsico.o
 __end_of_LEDarray_init 384 0 CODE 0 text5 dist/default/production\mini-proj-yafet12.X.production.o
 __Hbank0 0 0 ABS 0 bank0 dist/default/production\mini-proj-yafet12.X.production.o
 __Hbank1 0 0 ABS 0 bank1 dist/default/production\mini-proj-yafet12.X.production.o
@@ -377,7 +378,7 @@ __Hbank12 0 0 ABS 0 bank12 dist/default/production\mini-proj-yafet12.X.productio
 __Hbank13 0 0 ABS 0 bank13 dist/default/production\mini-proj-yafet12.X.production.o
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\mini-proj-yafet12.X.production.o
 __Hbigram 0 0 ABS 0 bigram dist/default/production\mini-proj-yafet12.X.production.o
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\yafet\AppData\Local\Temp\xcAshfs.o
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\yafet\AppData\Local\Temp\xcAsico.o
 _leap_year_constant 5 0 COMRAM 1 bssCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
 _hour_global 3 0 COMRAM 1 bssCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
 __end_of_HighISR 7C 0 CODE 0 intcode dist/default/production\mini-proj-yafet12.X.production.o
@@ -420,28 +421,28 @@ __Hdata 0 0 ABS 0 data dist/default/production\mini-proj-yafet12.X.production.o
 __Hinit 80 0 CODE 0 init dist/default/production\mini-proj-yafet12.X.production.o
 __Hrbit 0 0 COMRAM 1 rbit dist/default/production\mini-proj-yafet12.X.production.o
 __Hrbss 0 0 COMRAM 1 rbss dist/default/production\mini-proj-yafet12.X.production.o
-__Htemp 1C 0 COMRAM 1 temp dist/default/production\mini-proj-yafet12.X.production.o
+__Htemp 1E 0 COMRAM 1 temp dist/default/production\mini-proj-yafet12.X.production.o
 __Htext 0 0 ABS 0 text dist/default/production\mini-proj-yafet12.X.production.o
 __Labs1 0 0 ABS 0 abs1 dist/default/production\mini-proj-yafet12.X.production.o
 __Ldata 0 0 ABS 0 data dist/default/production\mini-proj-yafet12.X.production.o
 __Linit 7C 0 CODE 0 init dist/default/production\mini-proj-yafet12.X.production.o
 __Lrbit 0 0 COMRAM 1 rbit dist/default/production\mini-proj-yafet12.X.production.o
 __Lrbss 0 0 COMRAM 1 rbss dist/default/production\mini-proj-yafet12.X.production.o
-__Ltemp 1B 0 COMRAM 1 temp dist/default/production\mini-proj-yafet12.X.production.o
+__Ltemp 1D 0 COMRAM 1 temp dist/default/production\mini-proj-yafet12.X.production.o
 __Ltext 0 0 ABS 0 text dist/default/production\mini-proj-yafet12.X.production.o
-int$flags 1B 0 COMRAM 1 temp dist/default/production\mini-proj-yafet12.X.production.o
+int$flags 1D 0 COMRAM 1 temp dist/default/production\mini-proj-yafet12.X.production.o
 __HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
 _Timer0_init 3CE 0 CODE 0 text3 dist/default/production\mini-proj-yafet12.X.production.o
-_count_in_minutes F 0 COMRAM 1 bssCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
+_count_in_minutes 11 0 COMRAM 1 bssCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
 __Hintret 0 0 ABS 0 intret dist/default/production\mini-proj-yafet12.X.production.o
 __Hirdata 0 0 CODE 0 irdata dist/default/production\mini-proj-yafet12.X.production.o
 __S0 426 0 ABS 0 - dist/default/production\mini-proj-yafet12.X.production.o
-__S1 1C 0 ABS 0 - dist/default/production\mini-proj-yafet12.X.production.o
+__S1 1E 0 ABS 0 - dist/default/production\mini-proj-yafet12.X.production.o
 __S2 0 0 ABS 0 - dist/default/production\mini-proj-yafet12.X.production.o
 __S4 0 0 ABS 0 - dist/default/production\mini-proj-yafet12.X.production.o
 __S5 0 0 ABS 0 - dist/default/production\mini-proj-yafet12.X.production.o
 __size_of_Interrupts_init 0 0 ABS 0 - dist/default/production\mini-proj-yafet12.X.production.o
-LEDarray_disp_bin@number 14 0 COMRAM 1 cstackCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
+LEDarray_disp_bin@number 16 0 COMRAM 1 cstackCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
 __HidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
 __Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production\mini-proj-yafet12.X.production.o
 __Hnvrram 0 0 COMRAM 1 nvrram dist/default/production\mini-proj-yafet12.X.production.o
@@ -464,24 +465,24 @@ __Lbank10 0 0 ABS 0 bank10 dist/default/production\mini-proj-yafet12.X.productio
 __Lbank11 0 0 ABS 0 bank11 dist/default/production\mini-proj-yafet12.X.production.o
 __Lbank12 0 0 ABS 0 bank12 dist/default/production\mini-proj-yafet12.X.production.o
 __Lbank13 0 0 ABS 0 bank13 dist/default/production\mini-proj-yafet12.X.production.o
-calibration@hour 14 0 COMRAM 1 cstackCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
+calibration@hour 16 0 COMRAM 1 cstackCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
 __Lbigbss 0 0 BIGRAM 1 bigbss dist/default/production\mini-proj-yafet12.X.production.o
 __Lbigram 0 0 ABS 0 bigram dist/default/production\mini-proj-yafet12.X.production.o
 __Lcomram 0 0 ABS 0 comram dist/default/production\mini-proj-yafet12.X.production.o
 __Lconfig 0 0 CONFIG 4 config dist/default/production\mini-proj-yafet12.X.production.o
-?_Check_if_between_1and5 14 0 COMRAM 1 cstackCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
+?_Check_if_between_1and5 16 0 COMRAM 1 cstackCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
 _LATAbits F79 0 ABS 0 - dist/default/production\mini-proj-yafet12.X.production.o
 _LATBbits F7A 0 ABS 0 - dist/default/production\mini-proj-yafet12.X.production.o
 _LATFbits F7E 0 ABS 0 - dist/default/production\mini-proj-yafet12.X.production.o
 _LATGbits F7F 0 ABS 0 - dist/default/production\mini-proj-yafet12.X.production.o
 _LATHbits F80 0 ABS 0 - dist/default/production\mini-proj-yafet12.X.production.o
-Reset_time@day 14 0 COMRAM 1 cstackCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
+Reset_time@day 16 0 COMRAM 1 cstackCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\mini-proj-yafet12.X.production.o
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\mini-proj-yafet12.X.production.o
-isa$std 1 0 ABS 0 - C:\Users\yafet\AppData\Local\Temp\xcAshfs.o
-stackhi DE9 0 ABS 0 - C:\Users\yafet\AppData\Local\Temp\xcAshfs.o
-stacklo 60 0 ABS 0 - C:\Users\yafet\AppData\Local\Temp\xcAshfs.o
-Check_if_between_1and5@hour 14 0 COMRAM 1 cstackCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
+isa$std 1 0 ABS 0 - C:\Users\yafet\AppData\Local\Temp\xcAsico.o
+stackhi DE9 0 ABS 0 - C:\Users\yafet\AppData\Local\Temp\xcAsico.o
+stacklo 60 0 ABS 0 - C:\Users\yafet\AppData\Local\Temp\xcAsico.o
+Check_if_between_1and5@hour 16 0 COMRAM 1 cstackCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
 __Lintcode 8 0 CODE 0 intcode dist/default/production\mini-proj-yafet12.X.production.o
 __Lintret 0 0 ABS 0 intret dist/default/production\mini-proj-yafet12.X.production.o
 __Lirdata 0 0 CODE 0 irdata dist/default/production\mini-proj-yafet12.X.production.o
@@ -498,8 +499,8 @@ __LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\mini-proj-yafet12
 end_of_initialization 354 0 CODE 0 cinit dist/default/production\mini-proj-yafet12.X.production.o
 __Lnvrram 0 0 COMRAM 1 nvrram dist/default/production\mini-proj-yafet12.X.production.o
 __Hintentry 0 0 ABS 0 intentry dist/default/production\mini-proj-yafet12.X.production.o
-?___lwmod 14 0 COMRAM 1 cstackCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
-Check_Leap_year@year_global 14 0 COMRAM 1 cstackCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
+?___lwmod 16 0 COMRAM 1 cstackCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
+Check_Leap_year@year_global 16 0 COMRAM 1 cstackCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
 __Hreset_vec 4 0 CODE 0 reset_vec dist/default/production\mini-proj-yafet12.X.production.o
 __size_of_Check_Leap_year 0 0 ABS 0 - dist/default/production\mini-proj-yafet12.X.production.o
 __Lramtop E00 0 RAM 0 ramtop dist/default/production\mini-proj-yafet12.X.production.o
@@ -519,7 +520,7 @@ __ptext9 402 0 CODE 0 text9 dist/default/production\mini-proj-yafet12.X.producti
 __Lstruct 0 0 COMRAM 1 struct dist/default/production\mini-proj-yafet12.X.production.o
 __Ltext10 0 0 ABS 0 text10 dist/default/production\mini-proj-yafet12.X.production.o
 __Ltext11 0 0 ABS 0 text11 dist/default/production\mini-proj-yafet12.X.production.o
-__ramtop E00 0 RAM 0 ramtop C:\Users\yafet\AppData\Local\Temp\xcAshfs.o
+__ramtop E00 0 RAM 0 ramtop C:\Users\yafet\AppData\Local\Temp\xcAsico.o
 _HighISR 8 0 CODE 0 intcode dist/default/production\mini-proj-yafet12.X.production.o
 __Lpowerup 7C 0 CODE 0 powerup dist/default/production\mini-proj-yafet12.X.production.o
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\mini-proj-yafet12.X.production.o
@@ -534,7 +535,7 @@ __end_of_Check_if_between_1and5 330 0 CODE 0 text10 dist/default/production\mini
 __Lclrtext 0 0 ABS 0 clrtext dist/default/production\mini-proj-yafet12.X.production.o
 __size_of_calibration 0 0 ABS 0 - dist/default/production\mini-proj-yafet12.X.production.o
 __end_of_Timer0_init 3EC 0 CODE 0 text3 dist/default/production\mini-proj-yafet12.X.production.o
-__pcstackCOMRAM 14 0 COMRAM 1 cstackCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
+__pcstackCOMRAM 16 0 COMRAM 1 cstackCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
 _T0CON0bits FD5 0 ABS 0 - dist/default/production\mini-proj-yafet12.X.production.o
 _T0CON1bits FD6 0 ABS 0 - dist/default/production\mini-proj-yafet12.X.production.o
 __end_of_main 238 0 CODE 0 text0 dist/default/production\mini-proj-yafet12.X.production.o
@@ -549,9 +550,9 @@ __LRAM 1 0 ABS 0 - dist/default/production\mini-proj-yafet12.X.production.o
 __Lbss 0 0 RAM 1 bss dist/default/production\mini-proj-yafet12.X.production.o
 __Lram 0 0 ABS 0 ram dist/default/production\mini-proj-yafet12.X.production.o
 __Lsfr 0 0 ABS 0 sfr dist/default/production\mini-proj-yafet12.X.production.o
-_night B 0 COMRAM 1 bssCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
+_night D 0 COMRAM 1 bssCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
 __initialization 330 0 CODE 0 cinit dist/default/production\mini-proj-yafet12.X.production.o
-__pdataCOMRAM 19 0 COMRAM 1 dataCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
+__pdataCOMRAM 1B 0 COMRAM 1 dataCOMRAM dist/default/production\mini-proj-yafet12.X.production.o
 __Hfardata 0 0 FARRAM 0 fardata dist/default/production\mini-proj-yafet12.X.production.o
 __Hsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\mini-proj-yafet12.X.production.o
 __Lifardata 0 0 CODE 0 ifardata dist/default/production\mini-proj-yafet12.X.production.o
@@ -585,7 +586,7 @@ __end_of_LEDarray_disp_bin 160 0 CODE 0 text6 dist/default/production\mini-proj-
 %SEGMENTS
 reset_vec 0 0 0 4 1
 intcode 0 8 8 41E 1
-bssCOMRAM 1 1 1 1B 1
+bssCOMRAM 1 1 1 1D 1
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal
