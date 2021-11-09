@@ -38,4 +38,4 @@ https://www.youtube.com/watch?v=Oz8cxp4CtKo
 youtube link showing demonstration.
 
 ***When I made the video I made midnight the point where the offset was applied but then realised that if the offset was negative,
-the hour value would have been -1 so in my code I changed this to 3am which allows for the negative offset to occur. 
+the hour value would be -1 so in my code I changed this to 3am which allows for the negative offset to occur. 
