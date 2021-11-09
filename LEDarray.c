@@ -53,11 +53,11 @@ void LEDarray_disp_bin(unsigned int number)
 }
  int Check_if_between_1and5(unsigned int hour) {
      
-     if ((1<=count_in_minutes) && (count_in_minutes<5)) {
+     if ((1<=count_in_minutes) && (count_in_minutes<5)) {           //if the hour counter is in between 1 and 5 it is 5 am
             
-            night=1;
+            night=1;                                                //this changes the value of night to 1 which is used in interrupt
         }
-        else {night=0;}
+     else {night=0;}                                 //if it is not in between 1 and 5 am then the value of night remains 0.
      return night;
         
  }

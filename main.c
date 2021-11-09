@@ -59,7 +59,7 @@ void main(void) {
         
         offset=Daily_offset(dusk_hour, dawn_hour);      //this is how much the clock offset due to it not being a perfect clock
         if (hour==3) {
-            hour+=offset;       //when it is 3am the offset is applied 
+            hour+=offset;            //when it is 3am the offset is applied 
         }
         
         Reset_time(day_global);        //this function will reset the hour counter everyday

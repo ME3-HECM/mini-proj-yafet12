@@ -51,20 +51,21 @@ void Reset_time(int day) {
 
 }
 
-
+//
 void Check_Leap_year(year_global) {
     
-    if (year_global%4==0) {
+    if (year_global%4==0) {                 //true every 4 years
         
         leap_year_constant = 1;
-        if ((day_global==59) && (leap_year_constant==1)) {
-            day_global-=1;
+        if ((day_global==59) && (leap_year_constant==1)) {          //59 because 31 days of Jan plus 28 days of Feb =59
+            day_global-=1;                                          //we go back one day
+            leap_year_constant = 0;                                 //resets it to 0 to avoid infinte loop
         }
     }
     else {leap_year_constant=0;}
             
 }
-
+//calibrator which can be changed so that the counter starts on the hour that is wished for
 void calibration(unsigned int hour) {
     
     if (hour==midnight_global) {
@@ -72,7 +73,7 @@ void calibration(unsigned int hour) {
         T0CON0bits.T0EN=1;	//start the timer
     }
 }
-int Daily_offset(dusk_hour, dawn_hour) {
-    
+int Daily_offset(dusk_hour, dawn_hour) {        //this function calculates the offset that is needed everyday due to the clock
+                                                //source not being totally accurate and in sync with the sun
     return (dusk_hour-dawn_hour - 12);
 }
