@@ -33,6 +33,9 @@ stay in sync with the sun.
 The global variables for day and hour and year can be changed so that it can be calibrated with the current time. For instance, the
 initial value for the hour can be changed to 7 and day between 1 and 366 so that a specific date and time does not have to be waited for.  
 
-https://www.youtube.com/watch?v=Oz8cxp4CtKo     youtube link showing demonstration
-***When I made the video I made midnight the reset point but then realised that if the offset was negative, the hour value would got
-to -1 so in my code I changed this to 3am which allows for the negative offset to occur. 
+https://www.youtube.com/watch?v=Oz8cxp4CtKo
+
+youtube link showing demonstration.
+
+***When I made the video I made midnight the point where the offset was applied but then realised that if the offset was negative,
+the hour value would have been -1 so in my code I changed this to 3am which allows for the negative offset to occur. 
