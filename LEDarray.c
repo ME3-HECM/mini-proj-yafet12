@@ -5,6 +5,7 @@
 / LEDarray_init
 / Function used to initialise pins to drive the LEDarray
 ************************************/
+
 void LEDarray_init(void)
 {
     TRISGbits.TRISG0 = 0;
@@ -50,16 +51,14 @@ void LEDarray_disp_bin(unsigned int number)
     
     __delay_ms(50);    //delay so that change can be seen
 }
- 
-   
-//this function controls whether the LED is on or off during the hours (1am-5am)
-void LED_night_time_check(unsigned int hour) 
-{
-    
-    if (1<=hour<=5) {
-        LATHbits.LATH3=1;  //LED turns on between (1-5am) 
-    }
-    else {
-        LATHbits.LATH3=0;   //else LED is off
-    }
-}
+ int Check_if_between_1and5(unsigned int hour) {
+     
+     if ((1<=count_in_minutes) && (count_in_minutes<5)) {
+            
+            night=1;
+        }
+        else {night=0;}
+     return night;
+        
+ }
+

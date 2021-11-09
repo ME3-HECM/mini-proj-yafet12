@@ -24187,8 +24187,23 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 
 void DAC_init(void);
 void Comp1_init(void);
+void Check_Leap_year(int year_global);
+void calibration(unsigned int hour);
+void Reset_time(int day);
+extern int hour_global;
+extern int day_global;
+extern int year_global;
+extern int midnight_global;
+extern unsigned char leap_year;
 # 2 "comparator.c" 2
 
+
+int leap_year_constant=0;
+int hour_global;
+int day_global;
+int year_global=1;
+int midnight_global=0;
+unsigned char leap_year;
 
 
 
@@ -24216,6 +24231,39 @@ void Comp1_init(void)
     CM1CON0bits.HYS=1;
     CM1CON0bits.POL=1;
     CM1CON1bits.INTP=1;
+    CM1CON1bits.INTN=1;
     DAC_init();
     CM1CON0bits.EN=1;
+}
+
+
+void Reset_time(int day) {
+
+    if (day==365) {
+
+        year_global++;
+        day_global=0;
+    }
+
+}
+
+void Check_Leap_year(year_global) {
+
+    if (year_global%4==0) {
+
+        leap_year_constant = 1;
+        if (day_global==(31+28) & leap_year_constant==1) {
+            day_global-=1;
+        }
+    }
+    else {leap_year_constant=0;}
+
+}
+
+void calibration(unsigned int hour) {
+
+    if (hour==midnight_global) {
+
+        T0CON0bits.T0EN=1;
+    }
 }

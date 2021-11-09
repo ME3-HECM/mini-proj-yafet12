@@ -24200,10 +24200,7 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 
 void LEDarray_init(void);
 void LEDarray_disp_bin(unsigned int number);
-void LEDarray_disp_dec(unsigned int number);
-void LEDarray_disp_PPM(unsigned int number, unsigned int max);
-void Button_init(void);
-void LED_night_time_check(unsigned int hour);
+int Check_if_between_1and5(unsigned int hour);
 # 13 "main.c" 2
 
 # 1 "./interrupts.h" 1
@@ -24220,7 +24217,9 @@ void __attribute__((picinterrupt(("high_priority")))) HighISR();
 
 
 extern volatile unsigned int count_in_minutes;
-extern unsigned int hour;
+extern volatile unsigned int hour;
+extern int night;
+unsigned int timer_overflow_flag;
 # 14 "main.c" 2
 
 # 1 "./comparator.h" 1
@@ -24233,6 +24232,14 @@ extern unsigned int hour;
 
 void DAC_init(void);
 void Comp1_init(void);
+void Check_Leap_year(int year_global);
+void calibration(unsigned int hour);
+void Reset_time(int day);
+extern int hour_global;
+extern int day_global;
+extern int year_global;
+extern int midnight_global;
+extern unsigned char leap_year;
 # 15 "main.c" 2
 
 # 1 "./timers.h" 1
@@ -24398,19 +24405,31 @@ void main(void) {
     Comp1_init();
     Timer0_init();
 
+    calibration(hour);
+
     while (1) {
 
-        if (count_in_minutes%60==0) {
+
+
+        if (timer_overflow_flag && count_in_minutes%60==0) {
+
             hour++;
+            timer_overflow_flag=0;
         }
-        if (hour==24) {
-            LEDarray_disp_bin(hour);
-            hour=0;
+
+        if (count_in_minutes==24) {
+            LEDarray_disp_bin(count_in_minutes);
+            day_global++;
+            count_in_minutes=0;
         }
-        else {LEDarray_disp_bin(hour);}
+        else {LEDarray_disp_bin(count_in_minutes);}
 
-        LED_night_time_check(hour);
+        night = Check_if_between_1and5(count_in_minutes);
 
+
+
+        Reset_time(day_global);
+        Check_Leap_year(year_global);
     }
 
 

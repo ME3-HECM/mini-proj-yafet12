@@ -2031,47 +2031,44 @@ Version 4.0 HI-TECH Software Intermediate Code
 "10
 [; ;timers.c: 10:     T0CON1bits.T0ASYNC=1;
 [e = . . _T0CON1bits 0 1 -> -> 1 `i `uc ]
-"12
-[; ;timers.c: 12:     T0CON1bits.T0CKPS=0b1110;
-[e = . . _T0CON1bits 0 0 -> -> 14 `i `uc ]
-"14
-[; ;timers.c: 14:     T0CON0bits.T016BIT=1;
+"13
+[; ;timers.c: 13:     T0CON1bits.T0CKPS=0b0111;
+[e = . . _T0CON1bits 0 0 -> -> 7 `i `uc ]
+"15
+[; ;timers.c: 15:     T0CON0bits.T016BIT=1;
 [e = . . _T0CON0bits 0 1 -> -> 1 `i `uc ]
-"17
-[; ;timers.c: 17:     TMR0H=0b00011011;
-[e = _TMR0H -> -> 27 `i `uc ]
 "18
-[; ;timers.c: 18:     TMR0L=0b00011101;
+[; ;timers.c: 18:     TMR0H=0b00011011;
+[e = _TMR0H -> -> 27 `i `uc ]
+"19
+[; ;timers.c: 19:     TMR0L=0b00011101;
 [e = _TMR0L -> -> 29 `i `uc ]
-"20
-[; ;timers.c: 20:     T0CON0bits.T0EN=1;
-[e = . . _T0CON0bits 0 4 -> -> 1 `i `uc ]
-"21
-[; ;timers.c: 21: }
+"22
+[; ;timers.c: 22: }
 [e :UE 2019 ]
 }
-"27
-[; ;timers.c: 27: unsigned int disp_val;
-[v _disp_val `ui ~T0 @X0 1 e ]
 "28
-[; ;timers.c: 28: unsigned int get16bitTMR0val(void)
-[v _get16bitTMR0val `(ui ~T0 @X0 1 ef ]
+[; ;timers.c: 28: unsigned int disp_val;
+[v _disp_val `ui ~T0 @X0 1 e ]
 "29
-[; ;timers.c: 29: {
+[; ;timers.c: 29: unsigned int get16bitTMR0val(void)
+[v _get16bitTMR0val `(ui ~T0 @X0 1 ef ]
+"30
+[; ;timers.c: 30: {
 {
 [e :U _get16bitTMR0val ]
 [f ]
-"30
-[; ;timers.c: 30:     disp_val = TMR0L;
-[e = _disp_val -> _TMR0L `ui ]
 "31
-[; ;timers.c: 31:     disp_val |= TMR0H<<8;
+[; ;timers.c: 31:     disp_val = TMR0L;
+[e = _disp_val -> _TMR0L `ui ]
+"32
+[; ;timers.c: 32:     disp_val |= TMR0H<<8;
 [e =| _disp_val -> << -> _TMR0H `i -> 8 `i `ui ]
-"33
-[; ;timers.c: 33:     return disp_val;
+"34
+[; ;timers.c: 34:     return disp_val;
 [e ) _disp_val ]
 [e $UE 2020  ]
-"36
-[; ;timers.c: 36: }
+"37
+[; ;timers.c: 37: }
 [e :UE 2020 ]
 }

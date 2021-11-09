@@ -57,18 +57,36 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8 ./timers.h
 [; ;./timers.h: 8: void Timer0_init(void);
 [v _Timer0_init `(v ~T0 @X0 0 ef ]
-"13 ./interrupts.h
+"11 ./comparator.h
+[; ;./comparator.h: 11: void calibration(unsigned int hour);
+[v _calibration `(v ~T0 @X0 0 ef1`ui ]
+"14 ./interrupts.h
+[; ;./interrupts.h: 14: extern volatile unsigned int hour;
+[v _hour `Vui ~T0 @X0 0 e ]
+"13
 [; ;./interrupts.h: 13: extern volatile unsigned int count_in_minutes;
 [v _count_in_minutes `Vui ~T0 @X0 0 e ]
-"14
-[; ;./interrupts.h: 14: extern unsigned int hour;
-[v _hour `ui ~T0 @X0 0 e ]
 "10 ./LEDarray.h
 [; ;./LEDarray.h: 10: void LEDarray_disp_bin(unsigned int number);
 [v _LEDarray_disp_bin `(v ~T0 @X0 0 ef1`ui ]
-"14
-[; ;./LEDarray.h: 14: void LED_night_time_check(unsigned int hour);
-[v _LED_night_time_check `(v ~T0 @X0 0 ef1`ui ]
+"14 ./comparator.h
+[; ;./comparator.h: 14: extern int day_global;
+[v _day_global `i ~T0 @X0 0 e ]
+"15 ./interrupts.h
+[; ;./interrupts.h: 15: extern int night;
+[v _night `i ~T0 @X0 0 e ]
+"11 ./LEDarray.h
+[; ;./LEDarray.h: 11: int Check_if_between_1and5(unsigned int hour);
+[v _Check_if_between_1and5 `(i ~T0 @X0 0 ef1`ui ]
+"12 ./comparator.h
+[; ;./comparator.h: 12: void Reset_time(int day);
+[v _Reset_time `(v ~T0 @X0 0 ef1`i ]
+"10
+[; ;./comparator.h: 10: void Check_Leap_year(int year_global);
+[v _Check_Leap_year `(v ~T0 @X0 0 ef1`i ]
+"15
+[; ;./comparator.h: 15: extern int year_global;
+[v _year_global `i ~T0 @X0 0 e ]
 "7 main.c
 [p x FEXTOSC  =  HS      ]
 "8
@@ -2049,6 +2067,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40981
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f67k40.h: 40981: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
+"16 ./interrupts.h
+[; ;./interrupts.h: 16: unsigned int timer_overflow_flag;
+[v _timer_overflow_flag `ui ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
 "26 main.c
 [; ;main.c: 26: void main(void) {
@@ -2078,51 +2099,66 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 35:     Timer0_init();
 [e ( _Timer0_init ..  ]
 "37
-[; ;main.c: 37:     while (1) {
+[; ;main.c: 37:     calibration(hour);
+[e ( _calibration (1 _hour ]
+"39
+[; ;main.c: 39:     while (1) {
 [e :U 2023 ]
 {
-"39
-[; ;main.c: 39:         if (count_in_minutes%60==0) {
-[e $ ! == % _count_in_minutes -> -> 60 `i `ui -> -> 0 `i `ui 2025  ]
+"43
+[; ;main.c: 43:         if (timer_overflow_flag && count_in_minutes%60==0) {
+[e $ ! && != _timer_overflow_flag -> -> 0 `i `ui == % _count_in_minutes -> -> 60 `i `ui -> -> 0 `i `ui 2025  ]
 {
-"40
-[; ;main.c: 40:             hour++;
-[e ++ _hour -> -> 1 `i `ui ]
-"41
-[; ;main.c: 41:         }
+"45
+[; ;main.c: 45:             hour++;
+[e ++ _hour -> -> 1 `i `Vui ]
+"46
+[; ;main.c: 46:             timer_overflow_flag=0;
+[e = _timer_overflow_flag -> -> 0 `i `ui ]
+"47
+[; ;main.c: 47:         }
 }
 [e :U 2025 ]
-"42
-[; ;main.c: 42:         if (hour==24) {
-[e $ ! == _hour -> -> 24 `i `ui 2026  ]
+"49
+[; ;main.c: 49:         if (count_in_minutes==24) {
+[e $ ! == _count_in_minutes -> -> 24 `i `ui 2026  ]
 {
-"43
-[; ;main.c: 43:             LEDarray_disp_bin(hour);
-[e ( _LEDarray_disp_bin (1 _hour ]
-"44
-[; ;main.c: 44:             hour=0;
-[e = _hour -> -> 0 `i `ui ]
-"45
-[; ;main.c: 45:         }
+"50
+[; ;main.c: 50:             LEDarray_disp_bin(count_in_minutes);
+[e ( _LEDarray_disp_bin (1 _count_in_minutes ]
+"51
+[; ;main.c: 51:             day_global++;
+[e ++ _day_global -> 1 `i ]
+"52
+[; ;main.c: 52:             count_in_minutes=0;
+[e = _count_in_minutes -> -> 0 `i `ui ]
+"53
+[; ;main.c: 53:         }
 }
 [e $U 2027  ]
-"46
-[; ;main.c: 46:         else {LEDarray_disp_bin(hour);}
+"54
+[; ;main.c: 54:         else {LEDarray_disp_bin(count_in_minutes);}
 [e :U 2026 ]
 {
-[e ( _LEDarray_disp_bin (1 _hour ]
+[e ( _LEDarray_disp_bin (1 _count_in_minutes ]
 }
 [e :U 2027 ]
-"48
-[; ;main.c: 48:         LED_night_time_check(hour);
-[e ( _LED_night_time_check (1 _hour ]
-"50
-[; ;main.c: 50:     }
+"56
+[; ;main.c: 56:         night = Check_if_between_1and5(count_in_minutes);
+[e = _night ( _Check_if_between_1and5 (1 _count_in_minutes ]
+"60
+[; ;main.c: 60:         Reset_time(day_global);
+[e ( _Reset_time (1 _day_global ]
+"61
+[; ;main.c: 61:         Check_Leap_year(year_global);
+[e ( _Check_Leap_year (1 _year_global ]
+"62
+[; ;main.c: 62:     }
 }
 [e :U 2022 ]
 [e $U 2023  ]
 [e :U 2024 ]
-"53
-[; ;main.c: 53: }
+"65
+[; ;main.c: 65: }
 [e :UE 2021 ]
 }

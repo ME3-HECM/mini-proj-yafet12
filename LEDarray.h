@@ -8,6 +8,6 @@
 //function prototypes
 void LEDarray_init(void);
 void LEDarray_disp_bin(unsigned int number);
-void LED_night_time_check(unsigned int hour);
+int Check_if_between_1and5(unsigned int hour);
 
 #endif

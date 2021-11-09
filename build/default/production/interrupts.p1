@@ -78,6 +78,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "5204
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f67k40.h: 5204: extern volatile PIR2bits_t PIR2bits __attribute__((address(0xE35)));
 [v _PIR2bits `VS290 ~T0 @X0 0 e@3637 ]
+"13930
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f67k40.h: 13930:     struct {
+[s S642 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S642 . SYNC HYS . POL . OUT EN ]
+"13939
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f67k40.h: 13939:     struct {
+[s S643 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S643 . C1SYNC C1HYS . C1POL . C1OUT C1EN ]
+"13929
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f67k40.h: 13929: typedef union {
+[u S641 `S642 1 `S643 1 ]
+[n S641 . . . ]
+"13949
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f67k40.h: 13949: extern volatile CM1CON0bits_t CM1CON0bits __attribute__((address(0xED0)));
+[v _CM1CON0bits `VS641 ~T0 @X0 0 e@3792 ]
 "29280
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f67k40.h: 29280:     struct {
 [s S1364 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -2083,12 +2098,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40981
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f67k40.h: 40981: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"11 interrupts.c
+"16 ./interrupts.h
+[; ;./interrupts.h: 16: unsigned int timer_overflow_flag;
+[v _timer_overflow_flag `ui ~T0 @X0 1 e ]
+"9 interrupts.c
+[; ;interrupts.c: 9: int night=0;
+[v _night `i ~T0 @X0 1 e ]
+[i _night
+-> 0 `i
+]
+"10
+[; ;interrupts.c: 10: unsigned int timer_overflow_flag;
+[v _timer_overflow_flag `ui ~T0 @X0 1 e ]
+"11
 [; ;interrupts.c: 11: volatile unsigned int count_in_minutes;
 [v _count_in_minutes `Vui ~T0 @X0 1 e ]
 "12
-[; ;interrupts.c: 12: unsigned int hour;
-[v _hour `ui ~T0 @X0 1 e ]
+[; ;interrupts.c: 12: volatile unsigned int hour=0;
+[v _hour `Vui ~T0 @X0 1 e ]
+[i _hour
+-> -> 0 `i `ui
+]
 "15
 [; ;interrupts.c: 15: void Interrupts_init(void)
 [v _Interrupts_init `(v ~T0 @X0 1 ef ]
@@ -2133,33 +2163,70 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;interrupts.c: 39:         count_in_minutes++;
 [e ++ _count_in_minutes -> -> 1 `i `Vui ]
 "40
-[; ;interrupts.c: 40:         TMR0H=0b00011011;
-[e = _TMR0H -> -> 27 `i `uc ]
+[; ;interrupts.c: 40:         timer_overflow_flag=1;
+[e = _timer_overflow_flag -> -> 1 `i `ui ]
 "41
-[; ;interrupts.c: 41:         TMR0L=0b00011101;
+[; ;interrupts.c: 41:         TMR0H=0b00011011;
+[e = _TMR0H -> -> 27 `i `uc ]
+"42
+[; ;interrupts.c: 42:         TMR0L=0b00011101;
 [e = _TMR0L -> -> 29 `i `uc ]
-"44
-[; ;interrupts.c: 44:         PIR0bits.TMR0IF=0;
-[e = . . _PIR0bits 0 5 -> -> 0 `i `uc ]
 "45
-[; ;interrupts.c: 45:     }
+[; ;interrupts.c: 45:         PIR0bits.TMR0IF=0;
+[e = . . _PIR0bits 0 5 -> -> 0 `i `uc ]
+"46
+[; ;interrupts.c: 46:     }
 }
 [e :U 2021 ]
-"47
-[; ;interrupts.c: 47:     if (PIR2bits.C1IF) {
+"48
+[; ;interrupts.c: 48:     if (PIR2bits.C1IF) {
 [e $ ! != -> . . _PIR2bits 0 0 `i -> 0 `i 2022  ]
 {
-"48
-[; ;interrupts.c: 48:         LATHbits.LATH3=1;
-[e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
 "49
-[; ;interrupts.c: 49:         PIR2bits.C1IF=0;
-[e = . . _PIR2bits 0 0 -> -> 0 `i `uc ]
+[; ;interrupts.c: 49:         if (!CM1CON0bits.OUT){
+[e $ ! ! != -> . . _CM1CON0bits 0 5 `i -> 0 `i 2023  ]
+{
 "51
-[; ;interrupts.c: 51:     }
+[; ;interrupts.c: 51:             LATHbits.LATH3=0;
+[e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
+"52
+[; ;interrupts.c: 52:             PIR2bits.C1IF=0;
+[e = . . _PIR2bits 0 0 -> -> 0 `i `uc ]
+"53
+[; ;interrupts.c: 53:         }
+}
+[e $U 2024  ]
+"54
+[; ;interrupts.c: 54:         else if (CM1CON0bits.OUT) {
+[e :U 2023 ]
+[e $ ! != -> . . _CM1CON0bits 0 5 `i -> 0 `i 2025  ]
+{
+"56
+[; ;interrupts.c: 56:             if (!night)
+[e $ ! ! != _night -> 0 `i 2026  ]
+"57
+[; ;interrupts.c: 57:             {
+{
+"58
+[; ;interrupts.c: 58:                 LATHbits.LATH3=1;
+[e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
+"59
+[; ;interrupts.c: 59:             }
+}
+[e :U 2026 ]
+"60
+[; ;interrupts.c: 60:             PIR2bits.C1IF=0;
+[e = . . _PIR2bits 0 0 -> -> 0 `i `uc ]
+"62
+[; ;interrupts.c: 62:         }
+}
+[e :U 2025 ]
+[e :U 2024 ]
+"66
+[; ;interrupts.c: 66:     }
 }
 [e :U 2022 ]
-"52
-[; ;interrupts.c: 52: }
+"68
+[; ;interrupts.c: 68: }
 [e :UE 2020 ]
 }

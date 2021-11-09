@@ -112,6 +112,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "14019
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f67k40.h: 14019: extern volatile CM1CON1bits_t CM1CON1bits __attribute__((address(0xED1)));
 [v _CM1CON1bits `VS644 ~T0 @X0 0 e@3793 ]
+"39640
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f67k40.h: 39640:     struct {
+[s S1926 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1926 . T0OUTPS T016BIT T0OUT . T0EN ]
+"39647
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f67k40.h: 39647:     struct {
+[s S1927 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1927 . T0OUTPS0 T0OUTPS1 T0OUTPS2 T0OUTPS3 ]
+"39639
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f67k40.h: 39639: typedef union {
+[u S1925 `S1926 1 `S1927 1 ]
+[n S1925 . . . ]
+"39654
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f67k40.h: 39654: extern volatile T0CON0bits_t T0CON0bits __attribute__((address(0xFD5)));
+[v _T0CON0bits `VS1925 ~T0 @X0 0 e@4053 ]
 "54 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f67k40.h: 54: __asm("PPSLOCK equ 0DEFh");
 [; <" PPSLOCK equ 0DEFh ;# ">
@@ -2086,63 +2101,180 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40981
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f67k40.h: 40981: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"7 comparator.c
-[; ;comparator.c: 7: void DAC_init(void)
-[v _DAC_init `(v ~T0 @X0 1 ef ]
+"4 comparator.c
+[; ;comparator.c: 4: int leap_year_constant=0;
+[v _leap_year_constant `i ~T0 @X0 1 e ]
+[i _leap_year_constant
+-> 0 `i
+]
+"5
+[; ;comparator.c: 5: int hour_global;
+[v _hour_global `i ~T0 @X0 1 e ]
+"6
+[; ;comparator.c: 6: int day_global;
+[v _day_global `i ~T0 @X0 1 e ]
+"7
+[; ;comparator.c: 7: int year_global=1;
+[v _year_global `i ~T0 @X0 1 e ]
+[i _year_global
+-> 1 `i
+]
 "8
-[; ;comparator.c: 8: {
+[; ;comparator.c: 8: int midnight_global=0;
+[v _midnight_global `i ~T0 @X0 1 e ]
+[i _midnight_global
+-> 0 `i
+]
+"9
+[; ;comparator.c: 9: unsigned char leap_year;
+[v _leap_year `uc ~T0 @X0 1 e ]
+"14
+[; ;comparator.c: 14: void DAC_init(void)
+[v _DAC_init `(v ~T0 @X0 1 ef ]
+"15
+[; ;comparator.c: 15: {
 {
 [e :U _DAC_init ]
 [f ]
-"9
-[; ;comparator.c: 9:     DAC1CON0bits.PSS=0b00;
-[e = . . _DAC1CON0bits 0 2 -> -> 0 `i `uc ]
-"10
-[; ;comparator.c: 10:     DAC1CON0bits.NSS=0b0;
-[e = . . _DAC1CON0bits 0 0 -> -> 0 `i `uc ]
-"14
-[; ;comparator.c: 14:     DAC1CON1bits.DAC1R=0b10100;
-[e = . . _DAC1CON1bits 0 0 -> -> 20 `i `uc ]
-"15
-[; ;comparator.c: 15:     DAC1CON0bits.DAC1EN=1;
-[e = . . _DAC1CON0bits 1 7 -> -> 1 `i `uc ]
 "16
-[; ;comparator.c: 16: }
+[; ;comparator.c: 16:     DAC1CON0bits.PSS=0b00;
+[e = . . _DAC1CON0bits 0 2 -> -> 0 `i `uc ]
+"17
+[; ;comparator.c: 17:     DAC1CON0bits.NSS=0b0;
+[e = . . _DAC1CON0bits 0 0 -> -> 0 `i `uc ]
+"21
+[; ;comparator.c: 21:     DAC1CON1bits.DAC1R=0b10100;
+[e = . . _DAC1CON1bits 0 0 -> -> 20 `i `uc ]
+"22
+[; ;comparator.c: 22:     DAC1CON0bits.DAC1EN=1;
+[e = . . _DAC1CON0bits 1 7 -> -> 1 `i `uc ]
+"23
+[; ;comparator.c: 23: }
 [e :UE 2019 ]
 }
-"22
-[; ;comparator.c: 22: void Comp1_init(void)
+"29
+[; ;comparator.c: 29: void Comp1_init(void)
 [v _Comp1_init `(v ~T0 @X0 1 ef ]
-"23
-[; ;comparator.c: 23: {
+"30
+[; ;comparator.c: 30: {
 {
 [e :U _Comp1_init ]
 [f ]
-"24
-[; ;comparator.c: 24:     TRISFbits.TRISF7=1;
-[e = . . _TRISFbits 0 7 -> -> 1 `i `uc ]
-"25
-[; ;comparator.c: 25:     CM1NCHbits.NCH=0b011;
-[e = . . _CM1NCHbits 0 0 -> -> 3 `i `uc ]
-"26
-[; ;comparator.c: 26:     CM1PCHbits.PCH=0b101;
-[e = . . _CM1PCHbits 0 0 -> -> 5 `i `uc ]
-"27
-[; ;comparator.c: 27:     CM1CON0bits.HYS=1;
-[e = . . _CM1CON0bits 0 1 -> -> 1 `i `uc ]
-"28
-[; ;comparator.c: 28:     CM1CON0bits.POL=1;
-[e = . . _CM1CON0bits 0 3 -> -> 1 `i `uc ]
-"29
-[; ;comparator.c: 29:     CM1CON1bits.INTP=1;
-[e = . . _CM1CON1bits 0 1 -> -> 1 `i `uc ]
-"30
-[; ;comparator.c: 30:     DAC_init();
-[e ( _DAC_init ..  ]
 "31
-[; ;comparator.c: 31:     CM1CON0bits.EN=1;
-[e = . . _CM1CON0bits 0 6 -> -> 1 `i `uc ]
+[; ;comparator.c: 31:     TRISFbits.TRISF7=1;
+[e = . . _TRISFbits 0 7 -> -> 1 `i `uc ]
 "32
-[; ;comparator.c: 32: }
+[; ;comparator.c: 32:     CM1NCHbits.NCH=0b011;
+[e = . . _CM1NCHbits 0 0 -> -> 3 `i `uc ]
+"33
+[; ;comparator.c: 33:     CM1PCHbits.PCH=0b101;
+[e = . . _CM1PCHbits 0 0 -> -> 5 `i `uc ]
+"34
+[; ;comparator.c: 34:     CM1CON0bits.HYS=1;
+[e = . . _CM1CON0bits 0 1 -> -> 1 `i `uc ]
+"35
+[; ;comparator.c: 35:     CM1CON0bits.POL=1;
+[e = . . _CM1CON0bits 0 3 -> -> 1 `i `uc ]
+"36
+[; ;comparator.c: 36:     CM1CON1bits.INTP=1;
+[e = . . _CM1CON1bits 0 1 -> -> 1 `i `uc ]
+"37
+[; ;comparator.c: 37:     CM1CON1bits.INTN=1;
+[e = . . _CM1CON1bits 0 0 -> -> 1 `i `uc ]
+"38
+[; ;comparator.c: 38:     DAC_init();
+[e ( _DAC_init ..  ]
+"39
+[; ;comparator.c: 39:     CM1CON0bits.EN=1;
+[e = . . _CM1CON0bits 0 6 -> -> 1 `i `uc ]
+"40
+[; ;comparator.c: 40: }
 [e :UE 2020 ]
+}
+"43
+[; ;comparator.c: 43: void Reset_time(int day) {
+[v _Reset_time `(v ~T0 @X0 1 ef1`i ]
+{
+[e :U _Reset_time ]
+[v _day `i ~T0 @X0 1 r1 ]
+[f ]
+"45
+[; ;comparator.c: 45:     if (day==365) {
+[e $ ! == _day -> 365 `i 2022  ]
+{
+"47
+[; ;comparator.c: 47:         year_global++;
+[e ++ _year_global -> 1 `i ]
+"48
+[; ;comparator.c: 48:         day_global=0;
+[e = _day_global -> 0 `i ]
+"49
+[; ;comparator.c: 49:     }
+}
+[e :U 2022 ]
+"51
+[; ;comparator.c: 51: }
+[e :UE 2021 ]
+}
+"53
+[; ;comparator.c: 53: void Check_Leap_year(year_global) {
+[v _Check_Leap_year `(v ~T0 @X0 1 ef1`i ]
+{
+[e :U _Check_Leap_year ]
+[v _year_global `i ~T0 @X0 1 r1 ]
+[f ]
+"55
+[; ;comparator.c: 55:     if (year_global%4==0) {
+[e $ ! == % _year_global -> 4 `i -> 0 `i 2024  ]
+{
+"57
+[; ;comparator.c: 57:         leap_year_constant = 1;
+[e = _leap_year_constant -> 1 `i ]
+"58
+[; ;comparator.c: 58:         if (day_global==(31+28) & leap_year_constant==1) {
+[e $ ! & == _day_global + -> 31 `i -> 28 `i == _leap_year_constant -> 1 `i 2025  ]
+{
+"59
+[; ;comparator.c: 59:             day_global-=1;
+[e =- _day_global -> 1 `i ]
+"60
+[; ;comparator.c: 60:         }
+}
+[e :U 2025 ]
+"61
+[; ;comparator.c: 61:     }
+}
+[e $U 2026  ]
+"62
+[; ;comparator.c: 62:     else {leap_year_constant=0;}
+[e :U 2024 ]
+{
+[e = _leap_year_constant -> 0 `i ]
+}
+[e :U 2026 ]
+"64
+[; ;comparator.c: 64: }
+[e :UE 2023 ]
+}
+"66
+[; ;comparator.c: 66: void calibration(unsigned int hour) {
+[v _calibration `(v ~T0 @X0 1 ef1`ui ]
+{
+[e :U _calibration ]
+[v _hour `ui ~T0 @X0 1 r1 ]
+[f ]
+"68
+[; ;comparator.c: 68:     if (hour==midnight_global) {
+[e $ ! == _hour -> _midnight_global `ui 2028  ]
+{
+"70
+[; ;comparator.c: 70:         T0CON0bits.T0EN=1;
+[e = . . _T0CON0bits 0 4 -> -> 1 `i `uc ]
+"71
+[; ;comparator.c: 71:     }
+}
+[e :U 2028 ]
+"72
+[; ;comparator.c: 72: }
+[e :UE 2027 ]
 }

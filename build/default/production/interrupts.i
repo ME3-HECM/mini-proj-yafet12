@@ -24191,11 +24191,21 @@ void __attribute__((picinterrupt(("high_priority")))) HighISR();
 
 
 extern volatile unsigned int count_in_minutes;
-extern unsigned int hour;
+extern volatile unsigned int hour;
+extern int night;
+unsigned int timer_overflow_flag;
 # 2 "interrupts.c" 2
-# 11 "interrupts.c"
+
+
+
+
+
+
+
+int night=0;
+unsigned int timer_overflow_flag;
 volatile unsigned int count_in_minutes;
-unsigned int hour;
+volatile unsigned int hour=0;
 
 
 void Interrupts_init(void)
@@ -24223,6 +24233,7 @@ void __attribute__((picinterrupt(("high_priority")))) HighISR()
     if (PIR0bits.TMR0IF) {
 
         count_in_minutes++;
+        timer_overflow_flag=1;
         TMR0H=0b00011011;
         TMR0L=0b00011101;
 
@@ -24231,8 +24242,23 @@ void __attribute__((picinterrupt(("high_priority")))) HighISR()
     }
 
     if (PIR2bits.C1IF) {
-        LATHbits.LATH3=1;
-        PIR2bits.C1IF=0;
+        if (!CM1CON0bits.OUT){
+
+            LATHbits.LATH3=0;
+            PIR2bits.C1IF=0;
+        }
+        else if (CM1CON0bits.OUT) {
+
+            if (!night)
+            {
+                LATHbits.LATH3=1;
+            }
+            PIR2bits.C1IF=0;
+
+        }
+
+
 
     }
+
 }

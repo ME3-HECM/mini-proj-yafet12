@@ -9,7 +9,8 @@ void Timer0_init(void)
     T0CON1bits.T0CS=0b010; // Fosc/4
     T0CON1bits.T0ASYNC=1; // see datasheet errata - needed to ensure correct operation when Fosc/4 used as clock source
     //T0CON1bits.T0CKPS=0b1111; // 1:32768
-    T0CON1bits.T0CKPS=0b1110;  //we want our prescaler to be 16384 as its closest to 14648 which is the value needed for the interval to be 1 minute long
+    //for testing purposes, 
+    T0CON1bits.T0CKPS=0b0111;  //we want our prescaler to be 16384 as its closest to 14648 which is the value needed for the interval to be 1 minute long
     //we applied the offset a few lines down by setting the initial low and high registers different to 0.
     T0CON0bits.T016BIT=1;	//16bit mode. if set to 0 it goes into 8 bit mode	
 	
@@ -17,7 +18,7 @@ void Timer0_init(void)
     TMR0H=0b00011011;            //write High reg first, update happens when low reg is written to
     TMR0L=0b00011101;             
     //this number is 6941 which is the calculated offset needed so that overflow occurs every 60 seconds 
-    T0CON0bits.T0EN=1;	//start the timer
+    
 }
 
 /************************************

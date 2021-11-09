@@ -7,5 +7,12 @@
 
 void DAC_init(void);
 void Comp1_init(void);
-
+void Check_Leap_year(int year_global);
+void calibration(unsigned int hour);
+void Reset_time(int day);
+extern int hour_global;
+extern int day_global;
+extern int year_global;
+extern int midnight_global;   //for callibration
+extern unsigned char leap_year;
 #endif

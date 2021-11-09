@@ -32,22 +32,33 @@ void main(void) {
     Interrupts_init();  //initialise the enable registers of all the interrupts to be used
     DAC_init();         // don't worry about this for now
     Comp1_init();
-    Timer0_init();
+    Timer0_init();      //this causes the loop to stop??
+    
+    calibration(hour);
     
     while (1) {
         
-        if (count_in_minutes%60==0) {
+             //this function checks if the hour counter is between 1 and 5 to turn on the LED
+        
+        if (timer_overflow_flag && count_in_minutes%60==0) {
+            
             hour++;                         //the hour counter increments when the minute counter reaches multiples of 60
+            timer_overflow_flag=0;
         }
-        if (hour==24) {                    
-            LEDarray_disp_bin(hour);
-            hour=0;                                //reset the hour counter once hour reaches 24 hours
+        
+        if (count_in_minutes==24) {                    
+            LEDarray_disp_bin(count_in_minutes);    //the hour still needs to be displayed
+            day_global++;                           //increment day after 24 hours
+            count_in_minutes=0;                                //reset the hour counter once hour reaches 24 hours
         }
-        else {LEDarray_disp_bin(hour);}            //display the hour of the day on the LED
+        else {LEDarray_disp_bin(count_in_minutes);}
         
+        night = Check_if_between_1and5(count_in_minutes); 
+        //display the hour of the day on the LED
         
-        LED_night_time_check(hour);     
-        
+ 
+        Reset_time(day_global);        //this function will reset the hour counter everyday
+        Check_Leap_year(year_global);               //this function will check if it is a leap year and make the corrections
     }
     
       

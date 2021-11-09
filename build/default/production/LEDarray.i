@@ -24188,11 +24188,27 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 
 void LEDarray_init(void);
 void LEDarray_disp_bin(unsigned int number);
-void LEDarray_disp_dec(unsigned int number);
-void LEDarray_disp_PPM(unsigned int number, unsigned int max);
-void Button_init(void);
-void LED_night_time_check(unsigned int hour);
+int Check_if_between_1and5(unsigned int hour);
 # 2 "LEDarray.c" 2
+
+# 1 "./interrupts.h" 1
+
+
+
+
+
+
+
+void Interrupts_init(void);
+
+void __attribute__((picinterrupt(("high_priority")))) HighISR();
+
+
+extern volatile unsigned int count_in_minutes;
+extern volatile unsigned int hour;
+extern int night;
+unsigned int timer_overflow_flag;
+# 3 "LEDarray.c" 2
 
 
 
@@ -24244,81 +24260,13 @@ void LEDarray_disp_bin(unsigned int number)
 
     _delay((unsigned long)((50)*(64000000/4000.0)));
 }
+ int Check_if_between_1and5(unsigned int hour) {
 
+     if ((1<=count_in_minutes) && (count_in_minutes<5)) {
 
-
-
-
-
-void Button_init(void)
-{
-
-    TRISFbits.TRISF2 = 1;
-    ANSELFbits.ANSELF2=0;
-
-    }
-
-
-
-
-
-void LEDarray_disp_dec(unsigned int number)
-{
- unsigned int disp_val;
-    int index = 0b000000001;
-    int shift;
-    if (number >= 10) {
-        shift = number/10 - 1;
-        disp_val = index << shift;}
-    else {disp_val = 0b000000000;}
-
-
-
-
-
-
- LEDarray_disp_bin(disp_val);
-}
-# 96 "LEDarray.c"
-void LEDarray_disp_PPM(unsigned int cur_val, unsigned int max)
-{
- unsigned int disp_val;
-    int constant = 0b11111111;
-    int shift;
-
-    if (cur_val>max) {
-
-        if (cur_val>=10) {
-            cur_val = 10;
+            night=1;
         }
-        shift = 10-cur_val;
-        disp_val = constant>>(shift);
-    }
-    else {
-        _delay((unsigned long)((1000)*(64000000/4000.0)));
+        else {night=0;}
+     return night;
 
-        if (max>=10) {
-            max = 10;
-        }
-        shift = 10-max;
-        disp_val = constant>>(shift);
-
-    }
-
-
-
-
-
- LEDarray_disp_bin(disp_val);
-}
-
-void LED_night_time_check(unsigned int hour)
-{
-
-    if (1<=hour<=5) {
-        LATHbits.LATH3=1;
-    }
-    else {
-        LATHbits.LATH3=0;
-    }
-}
+ }
