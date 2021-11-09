@@ -35,7 +35,7 @@ void main(void) {
     Comp1_init();
     Timer0_init();      //this causes the loop to stop??
     
-    calibration(hour);
+    calibration(hour);      //this function can be changed so that the board can be turned on in the hour that is wanted 
     
     while (1) {
         
@@ -57,9 +57,12 @@ void main(void) {
         night = Check_if_between_1and5(count_in_minutes);   //function checks if the time is between 1 and 5am.  
         
         
- 
+        offset=Daily_offset(dusk_hour, dawn_hour);      //this is how much the clock offset due to it not being a perfect clock
+        
+        
         Reset_time(day_global);        //this function will reset the hour counter everyday
         Check_Leap_year(year_global);               //this function will check if it is a leap year and make the corrections
+        
     }
     
       

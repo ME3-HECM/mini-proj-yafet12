@@ -14,6 +14,8 @@ extern volatile unsigned int count_in_minutes;
 extern volatile unsigned int hour;
 extern int night;
 unsigned int timer_overflow_flag;
+extern unsigned int dawn_hour;
+extern unsigned int dusk_hour;
 
 
 #endif

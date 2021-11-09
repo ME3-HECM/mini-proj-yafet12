@@ -10,6 +10,7 @@ void Comp1_init(void);
 void Check_Leap_year(int year_global);
 void calibration(unsigned int hour);
 void Reset_time(int day);
+int Daily_offset(dusk_hour, dawn_hour);
 extern int hour_global;
 extern int day_global;
 extern int year_global;

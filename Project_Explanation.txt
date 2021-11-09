@@ -29,3 +29,6 @@ To maintain synchronicity with the sun, the program attempts to record and store
 off at dusk. The difference is then calculated to see how far off this is from the standard 12 hours that it should be. This
 difference is then applied at midnight by restarting the hour counter after the difference is calculated. This will help timer0 to
 stay in sync with the sun. 
+
+The global variables for day and hour and year can be changed so that it can be calibrated with the current time. For instance, the
+initial value for the hour can be changed to 7 and day between 1 and 366 so that a specific date and time does not have to be waited for.  

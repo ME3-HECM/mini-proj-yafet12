@@ -1,5 +1,6 @@
 #include <xc.h>
 #include "comparator.h"
+#include "interrupts.h"
 
 int leap_year_constant=0;   //this is used later to check if it is a leap year
 int hour_global;
@@ -70,4 +71,8 @@ void calibration(unsigned int hour) {
         
         T0CON0bits.T0EN=1;	//start the timer
     }
+}
+int Daily_offset(dusk_hour, dawn_hour) {
+    
+    return (dusk_hour-dawn_hour - 12);
 }
