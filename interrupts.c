@@ -51,5 +51,5 @@ void __interrupt(high_priority) HighISR()  //this interrupt flag is for the time
     }
 }
 
-
+//for some reason creating two interrupt functions created an error but including the 2 ISRs in one function worked???
 
