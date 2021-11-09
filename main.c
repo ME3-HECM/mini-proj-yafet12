@@ -47,7 +47,7 @@ void main(void) {
             timer_overflow_flag=0;
         }
         
-        if (count_in_minutes==24) {                    
+        LED_disp_hourif (count_in_minutes==24) {                    
             LEDarray_disp_bin(count_in_minutes);    //the hour still needs to be displayed
             day_global++;                           //increment day after 24 hours
             count_in_minutes=0;                                //reset the hour counter once hour reaches 24 hours
@@ -58,7 +58,9 @@ void main(void) {
         
         
         offset=Daily_offset(dusk_hour, dawn_hour);      //this is how much the clock offset due to it not being a perfect clock
-        
+        if (hour==3) {
+            hour+=offset;       //when it is 3am the offset is applied 
+        }
         
         Reset_time(day_global);        //this function will reset the hour counter everyday
         Check_Leap_year(year_global);               //this function will check if it is a leap year and make the corrections

@@ -27,8 +27,12 @@ and a 0 if not.
 
 To maintain synchronicity with the sun, the program attempts to record and store the minute at which the LED turns on at dawn and
 off at dusk. The difference is then calculated to see how far off this is from the standard 12 hours that it should be. This
-difference is then applied at midnight by restarting the hour counter after the difference is calculated. This will help timer0 to
+difference is then applied at 3am by adding the positive or negative offset to the hour counter after the difference is calculated. This will help timer0 to
 stay in sync with the sun. 
 
 The global variables for day and hour and year can be changed so that it can be calibrated with the current time. For instance, the
 initial value for the hour can be changed to 7 and day between 1 and 366 so that a specific date and time does not have to be waited for.  
+
+https://www.youtube.com/watch?v=Oz8cxp4CtKo     youtube link showing demonstration
+***When I made the video I made midnight the reset point but then realised that if the offset was negative, the hour value would got
+to -1 so in my code I changed this to 3am which allows for the negative offset to occur. 
