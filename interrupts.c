@@ -9,7 +9,7 @@
 
 
 volatile unsigned int count_in_minutes;
-unsigned int hour;
+volatile unsigned int hour;
 
 //function that initialise interrupt registers and turns on global registers
 void Interrupts_init(void)
