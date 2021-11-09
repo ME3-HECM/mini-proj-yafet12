@@ -14,12 +14,12 @@ unsigned int hour;
 //function that initialise interrupt registers and turns on global registers
 void Interrupts_init(void)
 {
-    //PIE0bits.INT0IE=1; //enable interrupt source INT0 
-    PIE0bits.TMR0IE=1;  //this enables the register which are flags to say which interrupt was triggered
-    PIE2bits.C1IE=1;
+    
+    PIE0bits.TMR0IE=1;  //this enables the timer0 interrupt 
+    PIE2bits.C1IE=1;    //this enables the comparator interrupt (the LDR signal reader)
     INTCONbits.IPEN=0; //this value set to 0 disables the priorities of interrupts
     INTCONbits.PEIE=1;
-    INTCONbits.GIE=1;
+    INTCONbits.GIE=1;   //this is turns on flobal interrupts
     
 	// turn on global interrupts, peripheral interrupts and the interrupt source 
 	// It's a good idea to turn on global interrupts last, once all other interrupt configuration is done.

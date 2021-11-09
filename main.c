@@ -45,6 +45,7 @@ void main(void) {
         }
         else {LEDarray_disp_bin(hour);}            //display the hour of the day on the LED
         
+        
         LED_night_time_check(hour);     
         
     }

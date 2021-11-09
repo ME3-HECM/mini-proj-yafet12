@@ -1,6 +1,6 @@
 #include <xc.h>
 #include "LEDarray.h"
-
+#include "interrupts.h"
 /************************************
 / LEDarray_init
 / Function used to initialise pins to drive the LEDarray
@@ -51,9 +51,6 @@ void LEDarray_disp_bin(unsigned int number)
     __delay_ms(50);    //delay so that change can be seen
 }
  
-	
-
-
    
 //this function controls whether the LED is on or off during the hours (1am-5am)
 void LED_night_time_check(unsigned int hour) 
