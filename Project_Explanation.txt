@@ -1,0 +1,41 @@
+This project attempts to create an automatic energy saving light system to be used outdoors.
+
+The main aims were:
+1) Monitors light level with the LDR and turns on an LED in low light conditions (i.e. night-time) and off in bright conditions (i.e. daytime)
+2) Displays the current hour of day on the LED array in binary
+3)Turns the light off between approx. 1am and 5am
+4)Adjusts for daylight savings time
+5)Maintain synchronicity with the sun indefinitely
+6) Be fully automatic (requires zero maintenance after installation)
+
+Explanation of Code:
+
+The code for this program was built using the timer register, LDR and an LED array. The timer0 was used in 16 bit mode which was
+then adjusted by pre scaling it by 16384 and then offseting it by 6491 so that the overflow would precisely occur every 60 seconds 
+with a 64 MHz oscillator. For the purpose of testing the pre scaler was significantly reduced so that 1 day could be simulated
+quicker. the 'counter_in_minutes' and 'hour' global variable. The interrupt flag for the timer overflow was set so that the minute 
+counter would increment by one every time it was triggered. In the main loop, a boolean comparator was introduced to check if an hour
+had passed and if so the hour variable would also increment by one.
+
+The next stage was to configure the comparator so that its output would change to a value of either 0 or 1 based on whether 
+there was a change from negative to positive edge or from positive to negative, indicating a useful change from either day to night
+or night to day for us. The interrupts were set accordingly so that the LED turned on when the LDR was covered and off when not.
+
+In addition, in the ISR, the condition tested whether or not it was night time as this would take priority. A function was made
+which receives the current hour and tests using boolean comparators whether it is in between 1am and 5am, returning a 1 if it is
+and a 0 if not.
+
+To maintain synchronicity with the sun, the program attempts to record and store the minute at which the LED turns on at dawn and
+off at dusk. The difference is then calculated to see how far off this is from the standard 12 hours that it should be. This
+difference is then applied at 3am by adding the positive or negative offset to the hour counter after the difference is calculated. This will help timer0 to
+stay in sync with the sun. 
+
+The global variables for day and hour and year can be changed so that it can be calibrated with the current time. For instance, the
+initial value for the hour can be changed to 7 and day between 1 and 366 so that a specific date and time does not have to be waited for.  
+
+https://www.youtube.com/watch?v=Oz8cxp4CtKo
+
+youtube link showing demonstration.
+
+***When I made the video I made midnight the point where the offset was applied but then realised that if the offset was negative,
+the hour value would be -1 so in my code I changed this to 3am which allows for the negative offset to occur. 
